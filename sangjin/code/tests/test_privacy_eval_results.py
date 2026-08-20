@@ -95,3 +95,67 @@ def test_prefix_profiles_use_identical_cases_within_each_comparison() -> None:
                 for summary in summaries.values()
             }
             assert len(hashes) == 1
+
+
+def test_method_comparison_covers_all_full_checkpoints() -> None:
+    result = load_json(RESULTS_ROOT / "2026-08-20-prefix-method-comparison.json")
+    four_bit = result["groups"]["4bit"]["models"]
+    bf16 = result["groups"]["bf16"]["models"]
+    assert set(four_bit) == {
+        "base",
+        "non_dp",
+        "naive_dp_4bit",
+        "dp_eps2_hooks",
+        "expanded_weights_dp_4bit",
+        "ghost_dp_4bit",
+        "fastdp_bk_4bit",
+    }
+    assert set(bf16) == {
+        "base_bf16",
+        "non_dp_bf16",
+        "naive_dp_bf16",
+        "hooks_dp_bf16",
+        "direct_vmap_bf16",
+        "expanded_weights_bf16",
+        "ghost_dp_bf16",
+        "fastdp_bk_bf16",
+    }
+
+
+def test_dp_methods_have_equivalent_extraction_counts() -> None:
+    result = load_json(RESULTS_ROOT / "2026-08-20-prefix-method-comparison.json")
+    four_bit = result["groups"]["4bit"]["models"]
+    four_bit_dp = [
+        four_bit[label]
+        for label in (
+            "naive_dp_4bit",
+            "dp_eps2_hooks",
+            "expanded_weights_dp_4bit",
+            "ghost_dp_4bit",
+            "fastdp_bk_4bit",
+        )
+    ]
+    assert {(row["member_exact"], row["control_exact"]) for row in four_bit_dp} == {
+        (5, 6)
+    }
+    assert {
+        (row["member_approximate"], row["control_approximate"])
+        for row in four_bit_dp
+    } == {(8, 8)}
+
+    bf16 = result["groups"]["bf16"]["models"]
+    bf16_dp = [
+        bf16[label]
+        for label in (
+            "naive_dp_bf16",
+            "hooks_dp_bf16",
+            "direct_vmap_bf16",
+            "expanded_weights_bf16",
+            "ghost_dp_bf16",
+            "fastdp_bk_bf16",
+        )
+    ]
+    assert {(row["member_exact"], row["control_exact"]) for row in bf16_dp} == {
+        (6, 6)
+    }
+    assert all(row["long_exact"] == row["long_approximate"] == 0 for row in bf16_dp)

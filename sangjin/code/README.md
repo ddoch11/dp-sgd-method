@@ -50,6 +50,7 @@ git submodule update --init --recursive
 | `scripts/train_synthetic_canary.py` | 동일 Canary 데이터로 non-DP 또는 DP epsilon=2 재학습 |
 | `scripts/evaluate_synthetic_canary.py` | open/guided extraction, candidate rank, exposure 측정 |
 | `scripts/compile_privacy_evaluation.py` | raw 결과를 JSON·Markdown 최종 보고서로 통합 |
+| `scripts/compile_prefix_method_comparison.py` | 4-bit·BF16 방법별 Prefix-Suffix 결과 통합 |
 | `scripts/run_post_training_privacy_evals.sh` | 학습 종료 후 Canary와 Prefix-Suffix 평가를 순차 실행 |
 | `src/privacy_eval_common.py` | 데이터 selection, response loss, model loading 공통 코드 |
 

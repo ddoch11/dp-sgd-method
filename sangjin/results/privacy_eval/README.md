@@ -16,6 +16,8 @@ Synthetic Canary는 모두 무작위 합성 환자 ID와 네 자리 연구 코�
 - `synthetic_canary_stress_manifest.json`: 동일 위치·코드의 record 내부 반복 stress
 - `2026-08-20-empirical-privacy.md`: 최종 표와 정성 출력 예시
 - `2026-08-20-empirical-privacy.json`: 모델별 raw summary 통합본
+- `2026-08-20-prefix-method-comparison.md`: Naive/Hooks/vmap/EW/Ghost/FastDP 비교표
+- `2026-08-20-prefix-method-comparison.json`: 방법별 raw summary·통계 통합본
 
 Adapter, per-example details, launcher log와 GPU 원시 출력은 `runs/` 아래에 보존하며 Git에는 포함하지 않는다.
 

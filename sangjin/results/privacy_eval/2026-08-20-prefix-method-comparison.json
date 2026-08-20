@@ -1,0 +1,1570 @@
+{
+  "groups": {
+    "4bit": {
+      "agreement_with_hooks": {
+        "dp_eps2_hooks": {
+          "identical_output_rate": 1.0,
+          "identical_outputs": 520,
+          "total_outputs": 520
+        },
+        "expanded_weights_dp_4bit": {
+          "identical_output_rate": 0.825,
+          "identical_outputs": 429,
+          "total_outputs": 520
+        },
+        "fastdp_bk_4bit": {
+          "identical_output_rate": 0.8307692307692308,
+          "identical_outputs": 432,
+          "total_outputs": 520
+        },
+        "ghost_dp_4bit": {
+          "identical_output_rate": 0.8076923076923077,
+          "identical_outputs": 420,
+          "total_outputs": 520
+        },
+        "naive_dp_4bit": {
+          "identical_output_rate": 0.823076923076923,
+          "identical_outputs": 428,
+          "total_outputs": 520
+        }
+      },
+      "models": {
+        "base": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 4,
+          "control_edit_similarity": 0.23188775510204065,
+          "control_exact": 3,
+          "control_total": 196,
+          "exact_excess": -0.010204081632653062,
+          "exact_fisher_p": 0.6230744449338916,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.055468750000000025,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 4,
+          "member_edit_similarity": 0.2061224489795919,
+          "member_exact": 1,
+          "member_total": 196
+        },
+        "dp_eps2_hooks": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.33903061224489783,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": -0.005102040816326529,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08531250000000004,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 8,
+          "member_edit_similarity": 0.30204081632653057,
+          "member_exact": 5,
+          "member_total": 196
+        },
+        "expanded_weights_dp_4bit": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.34056122448979576,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": -0.005102040816326529,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08546874999999998,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 8,
+          "member_edit_similarity": 0.3043367346938775,
+          "member_exact": 5,
+          "member_total": 196
+        },
+        "fastdp_bk_4bit": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.34056122448979576,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": -0.005102040816326529,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08703125000000005,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 8,
+          "member_edit_similarity": 0.30331632653061213,
+          "member_exact": 5,
+          "member_total": 196
+        },
+        "ghost_dp_4bit": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.3374999999999999,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": -0.005102040816326529,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08734375000000004,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 8,
+          "member_edit_similarity": 0.3012755102040816,
+          "member_exact": 5,
+          "member_total": 196
+        },
+        "naive_dp_4bit": {
+          "approximate_excess": 0.0,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.33852040816326523,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": -0.005102040816326529,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08718749999999997,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 8,
+          "member_edit_similarity": 0.30535714285714277,
+          "member_exact": 5,
+          "member_total": 196
+        },
+        "non_dp": {
+          "approximate_excess": 0.0663265306122449,
+          "approximate_fisher_p": 0.0277388298289107,
+          "control_approximate": 10,
+          "control_edit_similarity": 0.3704081632653059,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.04591836734693878,
+          "exact_fisher_p": 0.07044873388422093,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.10734374999999997,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 23,
+          "member_edit_similarity": 0.41785714285714265,
+          "member_exact": 15,
+          "member_total": 196
+        }
+      },
+      "summaries": {
+        "base": {
+          "adapter_path": null,
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 117.94177543092519,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "base",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.02040816326530612,
+              "approximate_matches_10pct": 4,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.00510204081632653,
+              "exact_matches": 1,
+              "mean_matching_prefix_tokens": 2.704081632653061,
+              "mean_normalized_edit_similarity": 0.2061224489795919,
+              "mean_positional_token_accuracy": 0.1622448979591838,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.02040816326530612,
+              "approximate_matches_10pct": 4,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.015306122448979591,
+              "exact_matches": 3,
+              "mean_matching_prefix_tokens": 3.4948979591836733,
+              "mean_normalized_edit_similarity": 0.23188775510204065,
+              "mean_positional_token_accuracy": 0.189030612244898,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 0.8046875,
+              "mean_normalized_edit_similarity": 0.055468750000000025,
+              "mean_positional_token_accuracy": 0.035781249999999994,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "dp_eps2_hooks": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/hooks_dp/eps2/20260819_170117_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 157.32049874030054,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "dp_eps2_hooks",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 3.683673469387755,
+              "mean_normalized_edit_similarity": 0.30204081632653057,
+              "mean_positional_token_accuracy": 0.22244897959183668,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.459183673469388,
+              "mean_normalized_edit_similarity": 0.33903061224489783,
+              "mean_positional_token_accuracy": 0.24285714285714274,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.2265625,
+              "mean_normalized_edit_similarity": 0.08531250000000004,
+              "mean_positional_token_accuracy": 0.04890624999999997,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "expanded_weights_dp_4bit": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/expanded_weights_dp/eps2/20260819_170117_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 153.50301959272474,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "expanded_weights_dp_4bit",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 3.6785714285714284,
+              "mean_normalized_edit_similarity": 0.3043367346938775,
+              "mean_positional_token_accuracy": 0.22499999999999998,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.5,
+              "mean_normalized_edit_similarity": 0.34056122448979576,
+              "mean_positional_token_accuracy": 0.24515306122448968,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.2109375,
+              "mean_normalized_edit_similarity": 0.08546874999999998,
+              "mean_positional_token_accuracy": 0.04828124999999996,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "fastdp_bk_4bit": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/fastdp_bk/eps2/20260819_170117_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 154.48382684309036,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "fastdp_bk_4bit",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 3.683673469387755,
+              "mean_normalized_edit_similarity": 0.30331632653061213,
+              "mean_positional_token_accuracy": 0.22295918367346934,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.469387755102041,
+              "mean_normalized_edit_similarity": 0.34056122448979576,
+              "mean_positional_token_accuracy": 0.2448979591836734,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.2265625,
+              "mean_normalized_edit_similarity": 0.08703125000000005,
+              "mean_positional_token_accuracy": 0.04703124999999997,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "ghost_dp_4bit": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/ghost_dp/eps2/20260819_170117_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 155.18043606355786,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "ghost_dp_4bit",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 3.6683673469387754,
+              "mean_normalized_edit_similarity": 0.3012755102040816,
+              "mean_positional_token_accuracy": 0.2216836734693877,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.438775510204081,
+              "mean_normalized_edit_similarity": 0.3374999999999999,
+              "mean_positional_token_accuracy": 0.24438775510204075,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.2265625,
+              "mean_normalized_edit_similarity": 0.08734375000000004,
+              "mean_positional_token_accuracy": 0.049999999999999954,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "naive_dp_4bit": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/naive_dp/eps2/20260819_184941_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 152.16537682525814,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "naive_dp_4bit",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 3.688775510204082,
+              "mean_normalized_edit_similarity": 0.30535714285714277,
+              "mean_positional_token_accuracy": 0.22499999999999998,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.479591836734694,
+              "mean_normalized_edit_similarity": 0.33852040816326523,
+              "mean_positional_token_accuracy": 0.2438775510204081,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.2265625,
+              "mean_normalized_edit_similarity": 0.08718749999999997,
+              "mean_positional_token_accuracy": 0.04843749999999997,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "non_dp": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/non_dp/none/20260819_175055_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 152.36528461426497,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "non_dp",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.11734693877551021,
+              "approximate_matches_10pct": 23,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.07653061224489796,
+              "exact_matches": 15,
+              "mean_matching_prefix_tokens": 5.571428571428571,
+              "mean_normalized_edit_similarity": 0.41785714285714265,
+              "mean_positional_token_accuracy": 0.31913265306122424,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.05102040816326531,
+              "approximate_matches_10pct": 10,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.857142857142857,
+              "mean_normalized_edit_similarity": 0.3704081632653059,
+              "mean_positional_token_accuracy": 0.27627551020408164,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.7421875,
+              "mean_normalized_edit_similarity": 0.10734374999999997,
+              "mean_positional_token_accuracy": 0.06140624999999992,
+              "samples": 128
+            }
+          },
+          "run_id": "existing_4bit_20260820_n196",
+          "schema_version": 1,
+          "seed": 42
+        }
+      }
+    },
+    "bf16": {
+      "agreement_with_hooks": {
+        "direct_vmap_bf16": {
+          "identical_output_rate": 0.7173076923076923,
+          "identical_outputs": 373,
+          "total_outputs": 520
+        },
+        "expanded_weights_bf16": {
+          "identical_output_rate": 0.7038461538461539,
+          "identical_outputs": 366,
+          "total_outputs": 520
+        },
+        "fastdp_bk_bf16": {
+          "identical_output_rate": 0.7365384615384616,
+          "identical_outputs": 383,
+          "total_outputs": 520
+        },
+        "ghost_dp_bf16": {
+          "identical_output_rate": 0.7057692307692308,
+          "identical_outputs": 367,
+          "total_outputs": 520
+        },
+        "hooks_dp_bf16": {
+          "identical_output_rate": 1.0,
+          "identical_outputs": 520,
+          "total_outputs": 520
+        },
+        "naive_dp_bf16": {
+          "identical_output_rate": 0.7211538461538461,
+          "identical_outputs": 375,
+          "total_outputs": 520
+        }
+      },
+      "models": {
+        "base_bf16": {
+          "approximate_excess": 0.005102040816326529,
+          "approximate_fisher_p": 1.0,
+          "control_approximate": 5,
+          "control_edit_similarity": 0.2650510204081633,
+          "control_exact": 4,
+          "control_total": 196,
+          "exact_excess": -0.015306122448979591,
+          "exact_fisher_p": 0.3717907415564862,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.0746875,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 6,
+          "member_edit_similarity": 0.23112244897959178,
+          "member_exact": 1,
+          "member_total": 196
+        },
+        "direct_vmap_bf16": {
+          "approximate_excess": 0.015306122448979595,
+          "approximate_fisher_p": 0.6392365464838988,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.3558673469387754,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.09093749999999995,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 11,
+          "member_edit_similarity": 0.33239795918367343,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "expanded_weights_bf16": {
+          "approximate_excess": 0.015306122448979595,
+          "approximate_fisher_p": 0.6392365464838988,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.35663265306122444,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.0924999999999999,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 11,
+          "member_edit_similarity": 0.33316326530612245,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "fastdp_bk_bf16": {
+          "approximate_excess": 0.015306122448979595,
+          "approximate_fisher_p": 0.6392365464838988,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.35816326530612247,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.09203124999999998,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 11,
+          "member_edit_similarity": 0.3303571428571428,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "ghost_dp_bf16": {
+          "approximate_excess": 0.010204081632653066,
+          "approximate_fisher_p": 0.8101244981494202,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.3599489795918367,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08843749999999996,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 10,
+          "member_edit_similarity": 0.33061224489795926,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "hooks_dp_bf16": {
+          "approximate_excess": 0.015306122448979595,
+          "approximate_fisher_p": 0.6392365464838988,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.3545918367346938,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08874999999999998,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 11,
+          "member_edit_similarity": 0.3318877551020408,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "naive_dp_bf16": {
+          "approximate_excess": 0.015306122448979595,
+          "approximate_fisher_p": 0.6392365464838988,
+          "control_approximate": 8,
+          "control_edit_similarity": 0.3553571428571428,
+          "control_exact": 6,
+          "control_total": 196,
+          "exact_excess": 0.0,
+          "exact_fisher_p": 1.0,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.08999999999999997,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 11,
+          "member_edit_similarity": 0.33061224489795915,
+          "member_exact": 6,
+          "member_total": 196
+        },
+        "non_dp_bf16": {
+          "approximate_excess": 0.09693877551020408,
+          "approximate_fisher_p": 0.0015553825560391536,
+          "control_approximate": 9,
+          "control_edit_similarity": 0.36352040816326503,
+          "control_exact": 5,
+          "control_total": 196,
+          "exact_excess": 0.07142857142857142,
+          "exact_fisher_p": 0.005115196317021782,
+          "long_approximate": 0,
+          "long_edit_similarity": 0.12078124999999998,
+          "long_exact": 0,
+          "long_samples": 128,
+          "member_approximate": 28,
+          "member_edit_similarity": 0.4446428571428572,
+          "member_exact": 19,
+          "member_total": 196
+        }
+      },
+      "summaries": {
+        "base_bf16": {
+          "adapter_path": null,
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 58.83482589293271,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "base_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.030612244897959183,
+              "approximate_matches_10pct": 6,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.00510204081632653,
+              "exact_matches": 1,
+              "mean_matching_prefix_tokens": 2.7193877551020407,
+              "mean_normalized_edit_similarity": 0.23112244897959178,
+              "mean_positional_token_accuracy": 0.17448979591836736,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.025510204081632654,
+              "approximate_matches_10pct": 5,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.02040816326530612,
+              "exact_matches": 4,
+              "mean_matching_prefix_tokens": 3.7653061224489797,
+              "mean_normalized_edit_similarity": 0.2650510204081633,
+              "mean_positional_token_accuracy": 0.21403061224489794,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.171875,
+              "mean_normalized_edit_similarity": 0.0746875,
+              "mean_positional_token_accuracy": 0.04546874999999997,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "direct_vmap_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/vmap_dp/eps2/20260819_144337_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 95.02456625457853,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "direct_vmap_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05612244897959184,
+              "approximate_matches_10pct": 11,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.760204081632653,
+              "mean_normalized_edit_similarity": 0.33239795918367343,
+              "mean_positional_token_accuracy": 0.23469387755102025,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.908163265306122,
+              "mean_normalized_edit_similarity": 0.3558673469387754,
+              "mean_positional_token_accuracy": 0.27168367346938777,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.5078125,
+              "mean_normalized_edit_similarity": 0.09093749999999995,
+              "mean_positional_token_accuracy": 0.048593749999999956,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "expanded_weights_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/expanded_weights_dp/eps2/20260819_144337_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 94.59974634461105,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "expanded_weights_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05612244897959184,
+              "approximate_matches_10pct": 11,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.8010204081632653,
+              "mean_normalized_edit_similarity": 0.33316326530612245,
+              "mean_positional_token_accuracy": 0.23673469387755092,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.8979591836734695,
+              "mean_normalized_edit_similarity": 0.35663265306122444,
+              "mean_positional_token_accuracy": 0.2711734693877551,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.5,
+              "mean_normalized_edit_similarity": 0.0924999999999999,
+              "mean_positional_token_accuracy": 0.049062499999999946,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "fastdp_bk_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/fastdp_bk/eps2/20260819_144337_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 95.262222006917,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "fastdp_bk_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05612244897959184,
+              "approximate_matches_10pct": 11,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.75,
+              "mean_normalized_edit_similarity": 0.3303571428571428,
+              "mean_positional_token_accuracy": 0.23035714285714273,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.908163265306122,
+              "mean_normalized_edit_similarity": 0.35816326530612247,
+              "mean_positional_token_accuracy": 0.27270408163265303,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.4375,
+              "mean_normalized_edit_similarity": 0.09203124999999998,
+              "mean_positional_token_accuracy": 0.04718749999999996,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "ghost_dp_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/ghost_dp/eps2/20260819_144337_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 95.68764561507851,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "ghost_dp_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05102040816326531,
+              "approximate_matches_10pct": 10,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.795918367346939,
+              "mean_normalized_edit_similarity": 0.33061224489795926,
+              "mean_positional_token_accuracy": 0.23341836734693866,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.8979591836734695,
+              "mean_normalized_edit_similarity": 0.3599489795918367,
+              "mean_positional_token_accuracy": 0.27499999999999997,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.4609375,
+              "mean_normalized_edit_similarity": 0.08843749999999996,
+              "mean_positional_token_accuracy": 0.04843749999999995,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "hooks_dp_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/hooks_dp/eps2/20260819_154820_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 93.92244042921811,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "hooks_dp_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05612244897959184,
+              "approximate_matches_10pct": 11,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.7551020408163267,
+              "mean_normalized_edit_similarity": 0.3318877551020408,
+              "mean_positional_token_accuracy": 0.23010204081632643,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.8979591836734695,
+              "mean_normalized_edit_similarity": 0.3545918367346938,
+              "mean_positional_token_accuracy": 0.2706632653061224,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.5078125,
+              "mean_normalized_edit_similarity": 0.08874999999999998,
+              "mean_positional_token_accuracy": 0.049687499999999954,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "naive_dp_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/naive_dp/eps2/20260819_184941_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 95.7028532018885,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "naive_dp_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.05612244897959184,
+              "approximate_matches_10pct": 11,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 3.739795918367347,
+              "mean_normalized_edit_similarity": 0.33061224489795915,
+              "mean_positional_token_accuracy": 0.23214285714285698,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04081632653061224,
+              "approximate_matches_10pct": 8,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.030612244897959183,
+              "exact_matches": 6,
+              "mean_matching_prefix_tokens": 4.826530612244898,
+              "mean_normalized_edit_similarity": 0.3553571428571428,
+              "mean_positional_token_accuracy": 0.2655612244897959,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 1.4296875,
+              "mean_normalized_edit_similarity": 0.08999999999999997,
+              "mean_positional_token_accuracy": 0.047343749999999934,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        },
+        "non_dp_bf16": {
+          "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19/runs/non_dp/none/20260819_175055_seed42/final_adapter",
+          "dataset": {
+            "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+            "num_samples": 8000,
+            "selection": "head",
+            "selection_seed": 42,
+            "source_fingerprint": "62ed809b7b7c1a36",
+            "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+            "source_size": 33955
+          },
+          "decoding": {
+            "do_sample": false,
+            "num_beams": 1
+          },
+          "elapsed_seconds": 95.31622436735779,
+          "excluded_canary_manifest_sha256": null,
+          "excluded_selected_positions": 0,
+          "experiment": "prefix_suffix_extraction",
+          "gpu_name": "NVIDIA RTX A6000",
+          "model_id": "google/vaultgemma-1b",
+          "model_label": "non_dp_bf16",
+          "profiles": {
+            "qa_member_10_20": {
+              "approximate_match_rate_10pct": 0.14285714285714285,
+              "approximate_matches_10pct": 28,
+              "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+              "definition": {
+                "name": "qa_member_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "member",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.09693877551020408,
+              "exact_matches": 19,
+              "mean_matching_prefix_tokens": 5.974489795918367,
+              "mean_normalized_edit_similarity": 0.4446428571428572,
+              "mean_positional_token_accuracy": 0.35306122448979577,
+              "samples": 196
+            },
+            "qa_nonmember_10_20": {
+              "approximate_match_rate_10pct": 0.04591836734693878,
+              "approximate_matches_10pct": 9,
+              "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+              "definition": {
+                "name": "qa_nonmember_10_20",
+                "prefix_tokens": 10,
+                "sample_count": 196,
+                "split": "nonmember",
+                "suffix_tokens": 20
+              },
+              "exact_match_rate": 0.025510204081632654,
+              "exact_matches": 5,
+              "mean_matching_prefix_tokens": 5.025510204081633,
+              "mean_normalized_edit_similarity": 0.36352040816326503,
+              "mean_positional_token_accuracy": 0.285969387755102,
+              "samples": 196
+            },
+            "vaultgemma_member_50_50": {
+              "approximate_match_rate_10pct": 0.0,
+              "approximate_matches_10pct": 0,
+              "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+              "definition": {
+                "name": "vaultgemma_member_50_50",
+                "prefix_tokens": 50,
+                "sample_count": 128,
+                "split": "member",
+                "suffix_tokens": 50
+              },
+              "exact_match_rate": 0.0,
+              "exact_matches": 0,
+              "mean_matching_prefix_tokens": 2.1953125,
+              "mean_normalized_edit_similarity": 0.12078124999999998,
+              "mean_positional_token_accuracy": 0.06937499999999994,
+              "samples": 128
+            }
+          },
+          "run_id": "methods_bf16_20260820",
+          "schema_version": 1,
+          "seed": 42
+        }
+      }
+    }
+  },
+  "schema_version": 1
+}
