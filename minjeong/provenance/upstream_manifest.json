@@ -1,0 +1,8 @@
+{
+  "repository_url": "https://github.com/google-gemini/gemma-cookbook.git",
+  "commit": "3c2935f537ecb667ad8444490e13f1edcfef993c",
+  "source_notebook": "Research/[VaultGemma]FineTuning_Inference_Huggingface.ipynb",
+  "source_sha256": "46acb0beca164a9004de33b84961572eeca2fb099a675aa76225d34a1c33535d",
+  "copied_notebook": "workspaces/vaultgemma_vectorized/[VaultGemma]FineTuning_Vectorized.ipynb",
+  "copied_pre_modification_sha256": "46acb0beca164a9004de33b84961572eeca2fb099a675aa76225d34a1c33535d"
+}
