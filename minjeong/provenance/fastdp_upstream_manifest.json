@@ -1,0 +1,34 @@
+{
+  "clone_path": "third_party/fast-differential-privacy",
+  "commit": "3d5cc561aa337c72f79873ccc4fe8b900b5493b5",
+  "commit_date": "2025-05-19T15:34:15-04:00",
+  "license": "Apache-2.0",
+  "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "paper": {
+    "arxiv": "2210.00038",
+    "authors": [
+      "Zhiqi Bu",
+      "Yu-Xiang Wang",
+      "Sheng Zha",
+      "George Karypis"
+    ],
+    "title": "Differentially Private Optimization on Large Model at Small Cost",
+    "venue": "ICML 2023"
+  },
+  "paper_era_release": {
+    "tag": "v1.1",
+    "commit": "30f097a17781c1582b41c3fca79da98028379ed3",
+    "date": "2023-05-13T14:45:38-04:00"
+  },
+  "repository_url": "https://github.com/awslabs/fast-differential-privacy.git",
+  "selected_revision_reason": "Pinned current official main for the latest upstream compatibility fixes; the paper-era v1.1 release is recorded separately.",
+  "source_sha256": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "README.md": "a8611da5870948d270ca6c73b10f0cd2d0428d93f8d4c685c840ff0edd05baf8",
+    "fastDP/autograd_grad_sample.py": "203d87dcb11a02c7c34a2d48133a1bb5b167c41b9c97ea2e0f9574ae7605320f",
+    "fastDP/privacy_engine.py": "b17bcd6cad1b3f9ac2539a1e9cce93984d1818a630352e372b01626821c7cf90",
+    "fastDP/supported_layers_grad_samplers.py": "d8d9921988e3d58712c78e1a7dd28f58b805945a8c1df489d1af7ec319062110",
+    "requirements.txt": "f1b57aa61b471f9fd31a961ec162917ef26fb4d72da98573549032f149f3de2d",
+    "setup.py": "af176d71977db71e19a24a693d8ac29f67ca788b781eab1ba39fda8c9ad87b75"
+  }
+}

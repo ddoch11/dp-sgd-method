@@ -1,0 +1,26 @@
+# Direct inputs for the official VaultGemma Hugging Face notebook at
+# google-gemini/gemma-cookbook commit 3c2935f537ecb667ad8444490e13f1edcfef993c.
+# The notebook requests Transformers tag v4.56.1-Vault-Gemma-preview; the
+# annotated tag resolves to immutable commit 291772b6b5abb8966179be85af3b3b92acc5ecbf.
+
+# Match the host-verified CUDA 12.8 runtime; newer torch 2.13 resolves CUDA 13
+# wheels that are not compatible with this machine's NVIDIA 535 driver.
+torch==2.10.0
+transformers @ git+https://github.com/huggingface/transformers.git@291772b6b5abb8966179be85af3b3b92acc5ecbf
+peft
+accelerate
+bitsandbytes
+datasets
+sentencepiece==0.2.1
+pandas
+kagglehub
+ipywidgets
+opacus==1.6.0
+tqdm
+
+# Reproducible notebook execution and environment validation tooling.
+nbclient
+nbconvert
+jupyter
+pytest
+psutil

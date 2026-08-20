@@ -1,0 +1,206 @@
+{
+  "base_commit": "c9be2491c40ae013c2557d5e9cd50c5833f601d9",
+  "experiment_contract": {
+    "logical_batch_size": 128,
+    "logical_optimizer_steps": 342,
+    "modes": [
+      "hooks",
+      "functorch",
+      "ew",
+      "ghost"
+    ],
+    "physical_batch_size": 16,
+    "physical_microbatches": 2700,
+    "target_delta": 1e-05,
+    "target_epsilon": 2
+  },
+  "files": [
+    {
+      "bytes": 276,
+      "path": ".gitignore",
+      "sha256": "79c2f7da8ca022daf7bdb69e6fb8f12d9267ce0b6e162534eca7bc5c2abd6e52"
+    },
+    {
+      "bytes": 5056,
+      "path": "README.md",
+      "sha256": "0f301a21bcea85fe5619cd2fd407290751304dc8725892270424e725d823f77b"
+    },
+    {
+      "bytes": 2160,
+      "path": "code/README.md",
+      "sha256": "20372b6ef2c4494f7ccc64822ad4994e785a40cf031be1e34f0abb97aaeffe30"
+    },
+    {
+      "bytes": 5948,
+      "path": "code/scripts/generate_release_manifest.py",
+      "sha256": "1a505771e0f326c45faa8b9b7882d40f54a3fab480090c6c5181de39b0870533"
+    },
+    {
+      "bytes": 16369,
+      "path": "code/scripts/monitor_vaultgemma_gpu.sh",
+      "sha256": "06edd6436c83fe1d28c1a317ce2b49bf9b5baa0e6db7150a104f7a5d605b15cc",
+      "source_path": "scripts/monitor_vaultgemma_gpu.sh",
+      "source_sha256": "06edd6436c83fe1d28c1a317ce2b49bf9b5baa0e6db7150a104f7a5d605b15cc"
+    },
+    {
+      "bytes": 15868,
+      "path": "code/scripts/run_vaultgemma_vectorized.sh",
+      "sha256": "2b6af9e0e21d6d589e07d0d76676a87f1c0acd1e4fe0b4090335bc4866626898",
+      "source_path": "scripts/run_vaultgemma_vectorized.sh",
+      "source_sha256": "957d8a127e839b672e71e9a604068cb6d178acf0f5839e3ec4eba5345ca51bd4"
+    },
+    {
+      "bytes": 264,
+      "path": "code/task_plan.md",
+      "sha256": "bf098024414eb8d21024ce4cf41147f8ddfa8f71065d9cca7ebb0ceb758418a1"
+    },
+    {
+      "bytes": 10266,
+      "path": "code/tests/test_release_contract.py",
+      "sha256": "4221c861d32d371f9bed97b5148f31b64d1ba2656970d85fd7f9139309934637"
+    },
+    {
+      "bytes": 7410,
+      "path": "code/tests/test_vaultgemma_benchmark_contract.py",
+      "sha256": "f13cce43b4cb21552c69813f3863c68ce1e5a7e7492c1716a20ff1144a307449",
+      "source_path": "tests/test_vaultgemma_benchmark_contract.py",
+      "source_sha256": "f13cce43b4cb21552c69813f3863c68ce1e5a7e7492c1716a20ff1144a307449"
+    },
+    {
+      "bytes": 21562,
+      "path": "code/tests/test_vaultgemma_dp_contract.py",
+      "sha256": "9eac4a1c0262ed7f85258d5b2e5ce8a2a3ca6a25a0f0258d183436574638cd73",
+      "source_path": "tests/test_vaultgemma_dp_contract.py",
+      "source_sha256": "9eac4a1c0262ed7f85258d5b2e5ce8a2a3ca6a25a0f0258d183436574638cd73"
+    },
+    {
+      "bytes": 23975,
+      "path": "code/tests/test_vaultgemma_loss_contract.py",
+      "sha256": "6fb0ad92b107d516a655156be8c44b2c6a2bb95beedcf330cef9172c26a50ced",
+      "source_path": "tests/test_vaultgemma_loss_contract.py",
+      "source_sha256": "6fb0ad92b107d516a655156be8c44b2c6a2bb95beedcf330cef9172c26a50ced"
+    },
+    {
+      "bytes": 9621,
+      "path": "code/tests/test_vaultgemma_numerical_equivalence.py",
+      "sha256": "82216c736d821e6a2852ebad2a6937ca229743ca1e4b06f62c8ed2bca0816d75",
+      "source_path": "tests/test_vaultgemma_numerical_equivalence.py",
+      "source_sha256": "530778c2c26e9668a13248a1994ccfff2ab19a72acb30a9414b687121b031570"
+    },
+    {
+      "bytes": 107218,
+      "path": "code/workspaces/vaultgemma_vectorized/[VaultGemma]FineTuning_Vectorized.ipynb",
+      "sha256": "95a0a6c5fff03a1344fa278edd300404778c4e22284e0e4ed78892cfadae7067",
+      "source_path": "workspaces/vaultgemma_vectorized/[VaultGemma]FineTuning_Vectorized.ipynb",
+      "source_sha256": "95a0a6c5fff03a1344fa278edd300404778c4e22284e0e4ed78892cfadae7067"
+    },
+    {
+      "bytes": 506,
+      "path": "code/workspaces/vaultgemma_vectorized/upstream_manifest.json",
+      "sha256": "440c8a998bfa7f717225400237f52a9b83561e8293f75b97cb66fb6d71c143e2",
+      "source_path": "workspaces/vaultgemma_vectorized/upstream_manifest.json",
+      "source_sha256": "440c8a998bfa7f717225400237f52a9b83561e8293f75b97cb66fb6d71c143e2"
+    },
+    {
+      "bytes": 13291,
+      "path": "code/workspaces/vaultgemma_vectorized/workspace_patch_manifest.json",
+      "sha256": "2436cbf7014da73bd8d362100bdb2ddcedbdc5595880e3733e56fc89b4decc4b",
+      "source_path": "workspaces/vaultgemma_vectorized/workspace_patch_manifest.json",
+      "source_sha256": "2436cbf7014da73bd8d362100bdb2ddcedbdc5595880e3733e56fc89b4decc4b"
+    },
+    {
+      "bytes": 873,
+      "path": "configs/storage.env.example",
+      "sha256": "b120013bcc169668566ff9d65d7aad4393afd620603e01ca12f924544afbcc17"
+    },
+    {
+      "bytes": 2617,
+      "path": "configs/vaultgemma-conda-explicit.lock.txt",
+      "sha256": "3c1aa905a303a16abc0e223a0d20ae5b255e541fac83d1e5fbd7156cd1bf90b1",
+      "source_path": "requirements/vaultgemma-conda-explicit.lock.txt",
+      "source_sha256": "3c1aa905a303a16abc0e223a0d20ae5b255e541fac83d1e5fbd7156cd1bf90b1"
+    },
+    {
+      "bytes": 802,
+      "path": "configs/vaultgemma-vectorized.in",
+      "sha256": "43eb2433cc1448c322b0404746f7fef2ff02a26e752e2d66a1cfb4c9aedcf26d",
+      "source_path": "requirements/vaultgemma-vectorized.in",
+      "source_sha256": "43eb2433cc1448c322b0404746f7fef2ff02a26e752e2d66a1cfb4c9aedcf26d"
+    },
+    {
+      "bytes": 3564,
+      "path": "configs/vaultgemma-vectorized.lock.txt",
+      "sha256": "ff0b1a01ac8158f4d1401588b8029dc8eeca56dbdd8f5fe458802ce78f95e548",
+      "source_path": "requirements/vaultgemma-vectorized.lock.txt",
+      "source_sha256": "ff0b1a01ac8158f4d1401588b8029dc8eeca56dbdd8f5fe458802ce78f95e548"
+    },
+    {
+      "bytes": 1611,
+      "path": "provenance/fastdp_upstream_manifest.json",
+      "sha256": "4a5a94e477dd919c830383960da441b6d35e771dc27ec4e0ae2d9b91f13fc326",
+      "source_path": "results/vaultgemma/fastdp_upstream_manifest.json",
+      "source_sha256": "4a5a94e477dd919c830383960da441b6d35e771dc27ec4e0ae2d9b91f13fc326"
+    },
+    {
+      "bytes": 506,
+      "path": "provenance/upstream_manifest.json",
+      "sha256": "440c8a998bfa7f717225400237f52a9b83561e8293f75b97cb66fb6d71c143e2",
+      "source_path": "workspaces/vaultgemma_vectorized/upstream_manifest.json",
+      "source_sha256": "440c8a998bfa7f717225400237f52a9b83561e8293f75b97cb66fb6d71c143e2"
+    },
+    {
+      "bytes": 13291,
+      "path": "provenance/workspace_patch_manifest.json",
+      "sha256": "2436cbf7014da73bd8d362100bdb2ddcedbdc5595880e3733e56fc89b4decc4b",
+      "source_path": "workspaces/vaultgemma_vectorized/workspace_patch_manifest.json",
+      "source_sha256": "2436cbf7014da73bd8d362100bdb2ddcedbdc5595880e3733e56fc89b4decc4b"
+    },
+    {
+      "bytes": 780,
+      "path": "results/README.md",
+      "sha256": "46a64141f64271f26627b3d87fcdc6f09a64a3ec66ad3d61a97a50aac30705c3"
+    },
+    {
+      "bytes": 836,
+      "path": "results/epsilon2_full342_summary.csv",
+      "sha256": "b701c3c1567022d91941325937b1dc3549503f77c6194b8d634b8c435153ccda"
+    },
+    {
+      "bytes": 2218,
+      "path": "results/epsilon2_full342_summary.md",
+      "sha256": "f7102c64c47eba6e3e948cd78b5e4f1d61dfb91e461943c1c6f3ef82814f39a1"
+    },
+    {
+      "bytes": 49335,
+      "path": "results/raw/expanded_weights.json",
+      "sha256": "72873b5bf97298ea86a9950d609480455dde7da037919ab0db913bda1fbf3bb7",
+      "source_path": "results/vaultgemma/runs/task10-ew-e2-full342-20260819a.json",
+      "source_sha256": "72873b5bf97298ea86a9950d609480455dde7da037919ab0db913bda1fbf3bb7"
+    },
+    {
+      "bytes": 49215,
+      "path": "results/raw/functorch.json",
+      "sha256": "e70e311883f5d0d424d1f24efd454cf68d555757a940d780e62535640066a182",
+      "source_path": "results/vaultgemma/runs/task10-functorch-e2-full342-20260819a.json",
+      "source_sha256": "e70e311883f5d0d424d1f24efd454cf68d555757a940d780e62535640066a182"
+    },
+    {
+      "bytes": 49210,
+      "path": "results/raw/ghost.json",
+      "sha256": "87d2b2c69d3026831a4c59a8ababd978b50f8b2fb5b3337259200492e2609a59",
+      "source_path": "results/vaultgemma/runs/task10-ghost-e2-full342-20260819a.json",
+      "source_sha256": "87d2b2c69d3026831a4c59a8ababd978b50f8b2fb5b3337259200492e2609a59"
+    },
+    {
+      "bytes": 49188,
+      "path": "results/raw/hooks.json",
+      "sha256": "77d03325150ccf918fed6fedeb6bb1e7aa4ededbc87d29f9e6ee8f94251b58e7",
+      "source_path": "results/vaultgemma/runs/task10-hooks-e2-full342-20260819b.json",
+      "source_sha256": "77d03325150ccf918fed6fedeb6bb1e7aa4ededbc87d29f9e6ee8f94251b58e7"
+    }
+  ],
+  "participant": "minjeong",
+  "release_date": "2026-08-20",
+  "repository": "https://github.com/ddoch11/dp-sgd-method.git",
+  "schema_version": 1
+}
