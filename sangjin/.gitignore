@@ -5,6 +5,8 @@ __pycache__/
 code/experiments/
 results/runs/
 results/launcher_logs/
+results/**/runs/
+results/**/launcher_logs/
 
 *.safetensors
 *.bin

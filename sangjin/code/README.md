@@ -8,7 +8,7 @@
 - `vmap_dp`: 모델 전체 `torch.func.vmap(grad_and_value)` 직접 적용
 - `expanded_weights_dp`: Opacus `GradSampleModuleExpandedWeights`
 - `ghost_dp`: Opacus Ghost Clipping 2-pass
-- `fastdp_bk`: FastDP Book-Keeping/MixOpt, 별도 스크립트와 환경
+- `fastdp_bk`: FastDP Book-Keeping base `ghost` mode, 별도 스크립트와 환경
 
 ## 공통 조건
 
@@ -40,3 +40,25 @@ git submodule update --init --recursive
 ```
 
 `max_steps=2` smoke 성공 후 `max_steps=0`으로 full run한다.
+
+## 실증적 Privacy 평가 코드
+
+| 파일 | 역할 |
+|---|---|
+| `scripts/evaluate_prefix_suffix.py` | 기존 train/non-member 문장의 deterministic continuation 추출 |
+| `scripts/create_synthetic_canary_manifest.py` | 합성 member/control Canary와 dataset hash 생성 |
+| `scripts/train_synthetic_canary.py` | 동일 Canary 데이터로 non-DP 또는 DP epsilon=2 재학습 |
+| `scripts/evaluate_synthetic_canary.py` | open/guided extraction, candidate rank, exposure 측정 |
+| `scripts/compile_privacy_evaluation.py` | raw 결과를 JSON·Markdown 최종 보고서로 통합 |
+| `scripts/run_post_training_privacy_evals.sh` | 학습 종료 후 Canary와 Prefix-Suffix 평가를 순차 실행 |
+| `src/privacy_eval_common.py` | 데이터 selection, response loss, model loading 공통 코드 |
+
+실험 설정은 `../configs/privacy_evaluation.yaml`에 있다. 대용량 adapter와 raw run은 `../results/privacy_eval/runs/`에 저장되며 Git에서 제외된다. Canary manifest와 최종 요약만 저장소에서 관리한다.
+
+```bash
+python scripts/create_synthetic_canary_manifest.py \
+  --config ../configs/privacy_evaluation.yaml \
+  --output ../results/privacy_eval/synthetic_canary_manifest.json
+```
+
+Canary는 기존 7,200개 train record 중 64개를 교체하므로 데이터 크기와 sampling rate `128/7200`을 유지한다. Standard v1은 한 record 내부에서 1·2·4·8회, stress v2는 4·8·16·32회 반복한다. 동일 비밀을 여러 privacy unit에 복제하지 않는다.

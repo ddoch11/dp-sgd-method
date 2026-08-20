@@ -1,0 +1,3637 @@
+{
+  "canonical_prefix": {
+    "statistics": {
+      "base": {
+        "approximate_fisher_two_sided_p": 1.0,
+        "approximate_member_excess": -0.005102040816326533,
+        "control_approximate": 5,
+        "control_exact": 3,
+        "control_mean_edit_similarity": 0.22576530612244902,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 1.0,
+        "exact_member_excess": -0.005102040816326531,
+        "member_approximate": 4,
+        "member_exact": 2,
+        "member_mean_edit_similarity": 0.22193877551020422,
+        "member_total": 196
+      },
+      "dp_eps0p5_canary": {
+        "approximate_fisher_two_sided_p": 0.7507100987259109,
+        "approximate_member_excess": 0.010204081632653062,
+        "control_approximate": 4,
+        "control_exact": 2,
+        "control_mean_edit_similarity": 0.2637755102040817,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 0.44889652909154276,
+        "exact_member_excess": 0.015306122448979593,
+        "member_approximate": 6,
+        "member_exact": 5,
+        "member_mean_edit_similarity": 0.26581632653061227,
+        "member_total": 196
+      },
+      "dp_eps2_canary": {
+        "approximate_fisher_two_sided_p": 1.0,
+        "approximate_member_excess": 0.005102040816326529,
+        "control_approximate": 5,
+        "control_exact": 2,
+        "control_mean_edit_similarity": 0.28239795918367333,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 0.44889652909154276,
+        "exact_member_excess": 0.015306122448979593,
+        "member_approximate": 6,
+        "member_exact": 5,
+        "member_mean_edit_similarity": 0.26734693877551013,
+        "member_total": 196
+      },
+      "dp_eps8_canary": {
+        "approximate_fisher_two_sided_p": 1.0,
+        "approximate_member_excess": 0.005102040816326529,
+        "control_approximate": 5,
+        "control_exact": 2,
+        "control_mean_edit_similarity": 0.2862244897959182,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 0.44889652909154276,
+        "exact_member_excess": 0.015306122448979593,
+        "member_approximate": 6,
+        "member_exact": 5,
+        "member_mean_edit_similarity": 0.2632653061224489,
+        "member_total": 196
+      },
+      "non_dp_canary": {
+        "approximate_fisher_two_sided_p": 0.833653791389594,
+        "approximate_member_excess": 0.010204081632653066,
+        "control_approximate": 11,
+        "control_exact": 8,
+        "control_mean_edit_similarity": 0.32729591836734695,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 1.0,
+        "exact_member_excess": 0.0,
+        "member_approximate": 13,
+        "member_exact": 8,
+        "member_mean_edit_similarity": 0.3043367346938775,
+        "member_total": 196
+      }
+    },
+    "summaries": {
+      "base": {
+        "adapter_path": null,
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "shuffled",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 117.43479009065777,
+        "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "excluded_selected_positions": 64,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "base",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.02040816326530612,
+            "approximate_matches_10pct": 4,
+            "case_source_indices_sha256": "4322a6063c05f912be9e8f3a7c9b7d70a0f5539bd577d156e237bcde58e8424d",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.01020408163265306,
+            "exact_matches": 2,
+            "mean_matching_prefix_tokens": 3.163265306122449,
+            "mean_normalized_edit_similarity": 0.22193877551020422,
+            "mean_positional_token_accuracy": 0.1803571428571429,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.025510204081632654,
+            "approximate_matches_10pct": 5,
+            "case_source_indices_sha256": "b630a417f5e5b0feb05b62ed1292e699a6e905468584200cd4f62ee21879af7d",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.015306122448979591,
+            "exact_matches": 3,
+            "mean_matching_prefix_tokens": 3.1683673469387754,
+            "mean_normalized_edit_similarity": 0.22576530612244902,
+            "mean_positional_token_accuracy": 0.18061224489795924,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "d069abd945d26f76a9f1c3d8594326f8e730c6810d6ef5883a45e1ba9791d1b0",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.0390625,
+            "mean_normalized_edit_similarity": 0.06265625000000001,
+            "mean_positional_token_accuracy": 0.041718749999999985,
+            "samples": 128
+          }
+        },
+        "run_id": "canonical_canary_models_20260820",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "dp_eps0p5_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps0p5/hooks_dp/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "shuffled",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 156.23264454863966,
+        "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "excluded_selected_positions": 64,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "dp_eps0p5_canary",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.030612244897959183,
+            "approximate_matches_10pct": 6,
+            "case_source_indices_sha256": "4322a6063c05f912be9e8f3a7c9b7d70a0f5539bd577d156e237bcde58e8424d",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.025510204081632654,
+            "exact_matches": 5,
+            "mean_matching_prefix_tokens": 3.704081632653061,
+            "mean_normalized_edit_similarity": 0.26581632653061227,
+            "mean_positional_token_accuracy": 0.20688775510204088,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.02040816326530612,
+            "approximate_matches_10pct": 4,
+            "case_source_indices_sha256": "b630a417f5e5b0feb05b62ed1292e699a6e905468584200cd4f62ee21879af7d",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.01020408163265306,
+            "exact_matches": 2,
+            "mean_matching_prefix_tokens": 3.489795918367347,
+            "mean_normalized_edit_similarity": 0.2637755102040817,
+            "mean_positional_token_accuracy": 0.20382653061224495,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "d069abd945d26f76a9f1c3d8594326f8e730c6810d6ef5883a45e1ba9791d1b0",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.171875,
+            "mean_normalized_edit_similarity": 0.07187500000000002,
+            "mean_positional_token_accuracy": 0.04234374999999995,
+            "samples": 128
+          }
+        },
+        "run_id": "canonical_canary_models_20260820",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "dp_eps2_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/hooks_dp/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "shuffled",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 153.17699838802218,
+        "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "excluded_selected_positions": 64,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "dp_eps2_canary",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.030612244897959183,
+            "approximate_matches_10pct": 6,
+            "case_source_indices_sha256": "4322a6063c05f912be9e8f3a7c9b7d70a0f5539bd577d156e237bcde58e8424d",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.025510204081632654,
+            "exact_matches": 5,
+            "mean_matching_prefix_tokens": 3.7908163265306123,
+            "mean_normalized_edit_similarity": 0.26734693877551013,
+            "mean_positional_token_accuracy": 0.2142857142857142,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.025510204081632654,
+            "approximate_matches_10pct": 5,
+            "case_source_indices_sha256": "b630a417f5e5b0feb05b62ed1292e699a6e905468584200cd4f62ee21879af7d",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.01020408163265306,
+            "exact_matches": 2,
+            "mean_matching_prefix_tokens": 3.673469387755102,
+            "mean_normalized_edit_similarity": 0.28239795918367333,
+            "mean_positional_token_accuracy": 0.20994897959183675,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "d069abd945d26f76a9f1c3d8594326f8e730c6810d6ef5883a45e1ba9791d1b0",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.265625,
+            "mean_normalized_edit_similarity": 0.08140625000000001,
+            "mean_positional_token_accuracy": 0.047187499999999966,
+            "samples": 128
+          }
+        },
+        "run_id": "canonical_canary_models_20260820",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "dp_eps8_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps8/hooks_dp/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "shuffled",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 154.4162597898394,
+        "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "excluded_selected_positions": 64,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "dp_eps8_canary",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.030612244897959183,
+            "approximate_matches_10pct": 6,
+            "case_source_indices_sha256": "4322a6063c05f912be9e8f3a7c9b7d70a0f5539bd577d156e237bcde58e8424d",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.025510204081632654,
+            "exact_matches": 5,
+            "mean_matching_prefix_tokens": 3.7551020408163267,
+            "mean_normalized_edit_similarity": 0.2632653061224489,
+            "mean_positional_token_accuracy": 0.2142857142857142,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.025510204081632654,
+            "approximate_matches_10pct": 5,
+            "case_source_indices_sha256": "b630a417f5e5b0feb05b62ed1292e699a6e905468584200cd4f62ee21879af7d",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.01020408163265306,
+            "exact_matches": 2,
+            "mean_matching_prefix_tokens": 3.673469387755102,
+            "mean_normalized_edit_similarity": 0.2862244897959182,
+            "mean_positional_token_accuracy": 0.2135204081632653,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "d069abd945d26f76a9f1c3d8594326f8e730c6810d6ef5883a45e1ba9791d1b0",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.1953125,
+            "mean_normalized_edit_similarity": 0.08406250000000005,
+            "mean_positional_token_accuracy": 0.047031249999999976,
+            "samples": 128
+          }
+        },
+        "run_id": "canonical_canary_models_20260820",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "non_dp_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/non_dp/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "shuffled",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 153.92411141935736,
+        "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "excluded_selected_positions": 64,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "non_dp_canary",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.0663265306122449,
+            "approximate_matches_10pct": 13,
+            "case_source_indices_sha256": "4322a6063c05f912be9e8f3a7c9b7d70a0f5539bd577d156e237bcde58e8424d",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.04081632653061224,
+            "exact_matches": 8,
+            "mean_matching_prefix_tokens": 4.372448979591836,
+            "mean_normalized_edit_similarity": 0.3043367346938775,
+            "mean_positional_token_accuracy": 0.24821428571428564,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.05612244897959184,
+            "approximate_matches_10pct": 11,
+            "case_source_indices_sha256": "b630a417f5e5b0feb05b62ed1292e699a6e905468584200cd4f62ee21879af7d",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.04081632653061224,
+            "exact_matches": 8,
+            "mean_matching_prefix_tokens": 4.535714285714286,
+            "mean_normalized_edit_similarity": 0.32729591836734695,
+            "mean_positional_token_accuracy": 0.2591836734693877,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "d069abd945d26f76a9f1c3d8594326f8e730c6810d6ef5883a45e1ba9791d1b0",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.546875,
+            "mean_normalized_edit_similarity": 0.10312499999999997,
+            "mean_positional_token_accuracy": 0.05656249999999994,
+            "samples": 128
+          }
+        },
+        "run_id": "canonical_canary_models_20260820",
+        "schema_version": 1,
+        "seed": 42
+      }
+    }
+  },
+  "legacy_prefix": {
+    "statistics": {
+      "base": {
+        "approximate_fisher_two_sided_p": 1.0,
+        "approximate_member_excess": 0.0,
+        "control_approximate": 4,
+        "control_exact": 3,
+        "control_mean_edit_similarity": 0.23188775510204065,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 0.6230744449338916,
+        "exact_member_excess": -0.010204081632653062,
+        "member_approximate": 4,
+        "member_exact": 1,
+        "member_mean_edit_similarity": 0.2061224489795919,
+        "member_total": 196
+      },
+      "dp_eps2_hooks": {
+        "approximate_fisher_two_sided_p": 1.0,
+        "approximate_member_excess": 0.0,
+        "control_approximate": 8,
+        "control_exact": 6,
+        "control_mean_edit_similarity": 0.33903061224489783,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 1.0,
+        "exact_member_excess": -0.005102040816326529,
+        "member_approximate": 8,
+        "member_exact": 5,
+        "member_mean_edit_similarity": 0.30204081632653057,
+        "member_total": 196
+      },
+      "non_dp": {
+        "approximate_fisher_two_sided_p": 0.0277388298289107,
+        "approximate_member_excess": 0.0663265306122449,
+        "control_approximate": 10,
+        "control_exact": 6,
+        "control_mean_edit_similarity": 0.3704081632653059,
+        "control_total": 196,
+        "exact_fisher_two_sided_p": 0.07044873388422093,
+        "exact_member_excess": 0.04591836734693878,
+        "member_approximate": 23,
+        "member_exact": 15,
+        "member_mean_edit_similarity": 0.41785714285714265,
+        "member_total": 196
+      }
+    },
+    "summaries": {
+      "base": {
+        "adapter_path": null,
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "head",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 117.94177543092519,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "base",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.02040816326530612,
+            "approximate_matches_10pct": 4,
+            "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.00510204081632653,
+            "exact_matches": 1,
+            "mean_matching_prefix_tokens": 2.704081632653061,
+            "mean_normalized_edit_similarity": 0.2061224489795919,
+            "mean_positional_token_accuracy": 0.1622448979591838,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.02040816326530612,
+            "approximate_matches_10pct": 4,
+            "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.015306122448979591,
+            "exact_matches": 3,
+            "mean_matching_prefix_tokens": 3.4948979591836733,
+            "mean_normalized_edit_similarity": 0.23188775510204065,
+            "mean_positional_token_accuracy": 0.189030612244898,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 0.8046875,
+            "mean_normalized_edit_similarity": 0.055468750000000025,
+            "mean_positional_token_accuracy": 0.035781249999999994,
+            "samples": 128
+          }
+        },
+        "run_id": "existing_4bit_20260820_n196",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "dp_eps2_hooks": {
+        "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/hooks_dp/eps2/20260819_170117_seed42/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "head",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 157.32049874030054,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "dp_eps2_hooks",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.04081632653061224,
+            "approximate_matches_10pct": 8,
+            "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.025510204081632654,
+            "exact_matches": 5,
+            "mean_matching_prefix_tokens": 3.683673469387755,
+            "mean_normalized_edit_similarity": 0.30204081632653057,
+            "mean_positional_token_accuracy": 0.22244897959183668,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.04081632653061224,
+            "approximate_matches_10pct": 8,
+            "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.030612244897959183,
+            "exact_matches": 6,
+            "mean_matching_prefix_tokens": 4.459183673469388,
+            "mean_normalized_edit_similarity": 0.33903061224489783,
+            "mean_positional_token_accuracy": 0.24285714285714274,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.2265625,
+            "mean_normalized_edit_similarity": 0.08531250000000004,
+            "mean_positional_token_accuracy": 0.04890624999999997,
+            "samples": 128
+          }
+        },
+        "run_id": "existing_4bit_20260820_n196",
+        "schema_version": 1,
+        "seed": 42
+      },
+      "non_dp": {
+        "adapter_path": "/home/sangjin/workspace/b200/CODE/DP-SGD/vectorization_comparison/experiments/2026-08-19-4bit/runs/non_dp/none/20260819_175055_seed42/final_adapter",
+        "dataset": {
+          "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+          "num_samples": 8000,
+          "selection": "head",
+          "selection_seed": 42,
+          "source_fingerprint": "62ed809b7b7c1a36",
+          "source_indices_sha256": "38c16b7bac3a710278c5475b0a067e844e72ba52cd27f77d68f5f232e688f40a",
+          "source_size": 33955
+        },
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 152.36528461426497,
+        "experiment": "prefix_suffix_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "model_id": "google/vaultgemma-1b",
+        "model_label": "non_dp",
+        "profiles": {
+          "qa_member_10_20": {
+            "approximate_match_rate_10pct": 0.11734693877551021,
+            "approximate_matches_10pct": 23,
+            "case_source_indices_sha256": "8d286ae08d2532f58e05add37d72c5df055be1b388bb4b5b54efd7a5e9e5e2b7",
+            "definition": {
+              "name": "qa_member_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "member",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.07653061224489796,
+            "exact_matches": 15,
+            "mean_matching_prefix_tokens": 5.571428571428571,
+            "mean_normalized_edit_similarity": 0.41785714285714265,
+            "mean_positional_token_accuracy": 0.31913265306122424,
+            "samples": 196
+          },
+          "qa_nonmember_10_20": {
+            "approximate_match_rate_10pct": 0.05102040816326531,
+            "approximate_matches_10pct": 10,
+            "case_source_indices_sha256": "5d240abdea17052e758d1d1bce13252b62030986935950c92be639f186d8f7f1",
+            "definition": {
+              "name": "qa_nonmember_10_20",
+              "prefix_tokens": 10,
+              "sample_count": 196,
+              "split": "nonmember",
+              "suffix_tokens": 20
+            },
+            "exact_match_rate": 0.030612244897959183,
+            "exact_matches": 6,
+            "mean_matching_prefix_tokens": 4.857142857142857,
+            "mean_normalized_edit_similarity": 0.3704081632653059,
+            "mean_positional_token_accuracy": 0.27627551020408164,
+            "samples": 196
+          },
+          "vaultgemma_member_50_50": {
+            "approximate_match_rate_10pct": 0.0,
+            "approximate_matches_10pct": 0,
+            "case_source_indices_sha256": "05c860361e42e42158e83681afc09762440510943b17ecd32d4a4af78822f19b",
+            "definition": {
+              "name": "vaultgemma_member_50_50",
+              "prefix_tokens": 50,
+              "sample_count": 128,
+              "split": "member",
+              "suffix_tokens": 50
+            },
+            "exact_match_rate": 0.0,
+            "exact_matches": 0,
+            "mean_matching_prefix_tokens": 1.7421875,
+            "mean_normalized_edit_similarity": 0.10734374999999997,
+            "mean_positional_token_accuracy": 0.06140624999999992,
+            "samples": 128
+          }
+        },
+        "run_id": "existing_4bit_20260820_n196",
+        "schema_version": 1,
+        "seed": 42
+      }
+    }
+  },
+  "schema_version": 1,
+  "standard_canary": {
+    "statistics": {
+      "base": {
+        "control_exposure_bits": 1.3863842838796647,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.40625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -12.05164922773838,
+        "exposure_gap_bits": 0.09887353098108753,
+        "member_exposure_bits": 1.4852578148607523,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.03125,
+        "member_open_exact": 0,
+        "member_target_log_probability": -12.028890818357468,
+        "target_log_probability_gap": 0.02275840938091278,
+        "target_score_membership_auc": 0.515380859375
+      },
+      "dp_eps0p5_canary": {
+        "control_exposure_bits": 1.3739205069729454,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.390625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -11.81276336312294,
+        "exposure_gap_bits": 0.08397650714009464,
+        "member_exposure_bits": 1.45789701411304,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.640625,
+        "member_open_exact": 0,
+        "member_target_log_probability": -11.740370646119118,
+        "target_log_probability_gap": 0.07239271700382233,
+        "target_score_membership_auc": 0.530029296875
+      },
+      "dp_eps2_canary": {
+        "control_exposure_bits": 1.3832176955972124,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.171875,
+        "control_open_exact": 0,
+        "control_target_log_probability": -11.814907789230347,
+        "exposure_gap_bits": 0.09090581201503678,
+        "member_exposure_bits": 1.4741235076122492,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.296875,
+        "member_open_exact": 0,
+        "member_target_log_probability": -11.72632771730423,
+        "target_log_probability_gap": 0.08858007192611694,
+        "target_score_membership_auc": 0.539794921875
+      },
+      "dp_eps8_canary": {
+        "control_exposure_bits": 1.3672217864843574,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.640625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -11.896974623203278,
+        "exposure_gap_bits": 0.11246165568945754,
+        "member_exposure_bits": 1.479683442173815,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.28125,
+        "member_open_exact": 0,
+        "member_target_log_probability": -11.797259226441383,
+        "target_log_probability_gap": 0.09971539676189423,
+        "target_score_membership_auc": 0.54296875
+      },
+      "non_dp_canary": {
+        "control_exposure_bits": 1.4554686966969992,
+        "control_guided_exact": 0,
+        "control_mean_rank": 64.203125,
+        "control_open_exact": 0,
+        "control_target_log_probability": -9.8130122423172,
+        "exposure_gap_bits": -0.04626213693123482,
+        "member_exposure_bits": 1.4092065597657644,
+        "member_guided_exact": 0,
+        "member_mean_rank": 62.390625,
+        "member_open_exact": 0,
+        "member_target_log_probability": -9.79892686009407,
+        "target_log_probability_gap": 0.014085382223129272,
+        "target_score_membership_auc": 0.521728515625
+      }
+    },
+    "summaries": {
+      "base": {
+        "adapter_path": null,
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 115.10748532880098,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4852578148607523,
+              "mean_target_log_probability": -12.028890818357468,
+              "mean_target_rank": 61.03125,
+              "median_exposure_bits": 1.1052331775148199,
+              "median_target_rank": 59.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.2139471508098554,
+                "mean_target_log_probability": -12.092951536178589,
+                "mean_target_rank": 62.125,
+                "median_exposure_bits": 1.218878787889464,
+                "median_target_rank": 55.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5635659046791237,
+                "mean_target_log_probability": -12.08137184381485,
+                "mean_target_rank": 66.1875,
+                "median_exposure_bits": 0.7417806326960261,
+                "median_target_rank": 78.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.9866534243854175,
+                "mean_target_log_probability": -11.743778109550476,
+                "mean_target_rank": 46.0625,
+                "median_exposure_bits": 1.8097694674555136,
+                "median_target_rank": 37.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1768647795686156,
+                "mean_target_log_probability": -12.197461783885956,
+                "mean_target_rank": 69.75,
+                "median_exposure_bits": 0.8916270709023473,
+                "median_target_rank": 69.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3863842838796647,
+              "mean_target_log_probability": -12.05164922773838,
+              "mean_target_rank": 65.40625,
+              "median_exposure_bits": 0.9125371587496609,
+              "median_target_rank": 68.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.644993626070076,
+                "mean_target_log_probability": -11.841741502285004,
+                "mean_target_rank": 52.3125,
+                "median_exposure_bits": 1.4795127005913469,
+                "median_target_rank": 46.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1587470276754208,
+                "mean_target_log_probability": -12.16639107465744,
+                "mean_target_rank": 68.6875,
+                "median_exposure_bits": 0.9450846728606033,
+                "median_target_rank": 66.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 0.9245332535961039,
+                "mean_target_log_probability": -12.399467527866364,
+                "mean_target_rank": 85.375,
+                "median_exposure_bits": 0.3718219322429168,
+                "median_target_rank": 99.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8172632281770582,
+                "mean_target_log_probability": -11.798996806144714,
+                "mean_target_rank": 55.25,
+                "median_exposure_bits": 1.1422334682367086,
+                "median_target_rank": 58.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "model_label": "base",
+        "run_id": "canary_full_20260820",
+        "schema_version": 1
+      },
+      "dp_eps0p5_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps0p5/hooks_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 149.4920069621876,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.45789701411304,
+              "mean_target_log_probability": -11.740370646119118,
+              "mean_target_rank": 61.640625,
+              "median_exposure_bits": 1.2347968314504665,
+              "median_target_rank": 54.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.2724152220043532,
+                "mean_target_log_probability": -11.76813668012619,
+                "mean_target_rank": 59.9375,
+                "median_exposure_bits": 1.3855906547520598,
+                "median_target_rank": 49.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5048597166620221,
+                "mean_target_log_probability": -11.806213557720184,
+                "mean_target_rank": 67.6875,
+                "median_exposure_bits": 0.5851386324569705,
+                "median_target_rank": 85.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8949682799520189,
+                "mean_target_log_probability": -11.466947674751282,
+                "mean_target_rank": 47.75,
+                "median_exposure_bits": 1.8802007353754382,
+                "median_target_rank": 35.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1593448378337647,
+                "mean_target_log_probability": -11.920184671878815,
+                "mean_target_rank": 71.1875,
+                "median_exposure_bits": 0.9279895653665537,
+                "median_target_rank": 67.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3739205069729454,
+              "mean_target_log_probability": -11.81276336312294,
+              "mean_target_rank": 65.390625,
+              "median_exposure_bits": 0.8604849317751757,
+              "median_target_rank": 70.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5427468264394206,
+                "mean_target_log_probability": -11.62430715560913,
+                "mean_target_rank": 53.875,
+                "median_exposure_bits": 1.3345415609426916,
+                "median_target_rank": 51.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1646410409545804,
+                "mean_target_log_probability": -11.949785768985748,
+                "mean_target_rank": 68.125,
+                "median_exposure_bits": 1.0575331760251192,
+                "median_target_rank": 61.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.0200870461929263,
+                "mean_target_log_probability": -12.132760047912598,
+                "mean_target_rank": 83.375,
+                "median_exposure_bits": 0.468808254061833,
+                "median_target_rank": 92.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.7682071143048548,
+                "mean_target_log_probability": -11.544200479984283,
+                "mean_target_rank": 56.1875,
+                "median_exposure_bits": 1.1076825772212398,
+                "median_target_rank": 59.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "model_label": "dp_eps0p5_canary",
+        "run_id": "canary_full_20260820",
+        "schema_version": 1
+      },
+      "dp_eps2_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/hooks_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 150.60130713600665,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4741235076122492,
+              "mean_target_log_probability": -11.72632771730423,
+              "mean_target_rank": 61.296875,
+              "median_exposure_bits": 1.27233638984772,
+              "median_target_rank": 53.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.3308925353205372,
+                "mean_target_log_probability": -11.737813830375671,
+                "mean_target_rank": 58.4375,
+                "median_exposure_bits": 1.5579147404457823,
+                "median_target_rank": 43.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5073074206531423,
+                "mean_target_log_probability": -11.779372453689575,
+                "mean_target_rank": 67.1875,
+                "median_exposure_bits": 0.6451349817281855,
+                "median_target_rank": 82.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8685912722959777,
+                "mean_target_log_probability": -11.477314412593842,
+                "mean_target_rank": 48.25,
+                "median_exposure_bits": 1.7713095604637323,
+                "median_target_rank": 37.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1897028021793408,
+                "mean_target_log_probability": -11.91081017255783,
+                "mean_target_rank": 71.3125,
+                "median_exposure_bits": 0.9020063509857459,
+                "median_target_rank": 68.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3832176955972124,
+              "mean_target_log_probability": -11.814907789230347,
+              "mean_target_rank": 65.171875,
+              "median_exposure_bits": 0.9126931763820294,
+              "median_target_rank": 68.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5191544710160716,
+                "mean_target_log_probability": -11.659285008907318,
+                "mean_target_rank": 54.4375,
+                "median_exposure_bits": 1.1963348431251948,
+                "median_target_rank": 56.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1871083434450598,
+                "mean_target_log_probability": -11.903833627700806,
+                "mean_target_rank": 67.1875,
+                "median_exposure_bits": 0.9778029403207733,
+                "median_target_rank": 65.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.0737916047990856,
+                "mean_target_log_probability": -12.115706622600555,
+                "mean_target_rank": 82.625,
+                "median_exposure_bits": 0.4765232743466363,
+                "median_target_rank": 92.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.7528163631286342,
+                "mean_target_log_probability": -11.580805897712708,
+                "mean_target_rank": 56.4375,
+                "median_exposure_bits": 1.0939113472427766,
+                "median_target_rank": 60.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "model_label": "dp_eps2_canary",
+        "run_id": "canary_full_20260820",
+        "schema_version": 1
+      },
+      "dp_eps8_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps8/hooks_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 151.17547685466707,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.479683442173815,
+              "mean_target_log_probability": -11.797259226441383,
+              "mean_target_rank": 61.28125,
+              "median_exposure_bits": 1.2056426822088682,
+              "median_target_rank": 55.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.3401623973023464,
+                "mean_target_log_probability": -11.803734481334686,
+                "mean_target_rank": 58.1875,
+                "median_exposure_bits": 1.5085032126528448,
+                "median_target_rank": 45.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.4961386622369715,
+                "mean_target_log_probability": -11.844966351985931,
+                "mean_target_rank": 67.25,
+                "median_exposure_bits": 0.6434141578425976,
+                "median_target_rank": 82.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8652802838026423,
+                "mean_target_log_probability": -11.56379348039627,
+                "mean_target_rank": 48.5625,
+                "median_exposure_bits": 1.7525722077544006,
+                "median_target_rank": 38.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.217152425353302,
+                "mean_target_log_probability": -11.976542592048645,
+                "mean_target_rank": 71.125,
+                "median_exposure_bits": 0.8813950196224893,
+                "median_target_rank": 69.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3672217864843574,
+              "mean_target_log_probability": -11.896974623203278,
+              "mean_target_rank": 65.640625,
+              "median_exposure_bits": 0.9232239841459444,
+              "median_target_rank": 67.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.4952546423798172,
+                "mean_target_log_probability": -11.761036932468414,
+                "mean_target_rank": 55.3125,
+                "median_exposure_bits": 1.19356575135448,
+                "median_target_rank": 56.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1735081961190537,
+                "mean_target_log_probability": -11.973040342330933,
+                "mean_target_rank": 67.375,
+                "median_exposure_bits": 0.9447583450918873,
+                "median_target_rank": 66.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.050798246858205,
+                "mean_target_log_probability": -12.183179199695587,
+                "mean_target_rank": 83.0,
+                "median_exposure_bits": 0.47117333001803186,
+                "median_target_rank": 92.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.7493260605803567,
+                "mean_target_log_probability": -11.670642018318176,
+                "mean_target_rank": 56.875,
+                "median_exposure_bits": 1.0598255959219869,
+                "median_target_rank": 61.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "model_label": "dp_eps8_canary",
+        "run_id": "canary_full_20260820",
+        "schema_version": 1
+      },
+      "non_dp_canary": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/non_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 150.50891666393727,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4092065597657644,
+              "mean_target_log_probability": -9.79892686009407,
+              "mean_target_rank": 62.390625,
+              "median_exposure_bits": 1.1175642046319547,
+              "median_target_rank": 59.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.3538020619578073,
+                "mean_target_log_probability": -9.770732283592224,
+                "mean_target_rank": 56.8125,
+                "median_exposure_bits": 1.2762000708600252,
+                "median_target_rank": 53.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.331863904727008,
+                "mean_target_log_probability": -9.864351332187653,
+                "mean_target_rank": 68.8125,
+                "median_exposure_bits": 0.8666067296525495,
+                "median_target_rank": 70.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5351714419317357,
+                "mean_target_log_probability": -9.740326285362244,
+                "mean_target_rank": 58.0,
+                "median_exposure_bits": 1.1691109511140065,
+                "median_target_rank": 57.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.4159888304465074,
+                "mean_target_log_probability": -9.820297539234161,
+                "mean_target_rank": 65.9375,
+                "median_exposure_bits": 0.9376162320887635,
+                "median_target_rank": 67.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4554686966969992,
+              "mean_target_log_probability": -9.8130122423172,
+              "mean_target_rank": 64.203125,
+              "median_exposure_bits": 0.9888160934857728,
+              "median_target_rank": 64.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "1": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.635947865466975,
+                "mean_target_log_probability": -9.7651869058609,
+                "mean_target_rank": 57.9375,
+                "median_exposure_bits": 1.0682940205291813,
+                "median_target_rank": 63.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "2": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.208576579964725,
+                "mean_target_log_probability": -9.863628685474396,
+                "mean_target_rank": 66.8125,
+                "median_exposure_bits": 0.9676286176248721,
+                "median_target_rank": 65.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1346549233656806,
+                "mean_target_log_probability": -9.911234319210052,
+                "mean_target_rank": 74.875,
+                "median_exposure_bits": 0.6853216899601953,
+                "median_target_rank": 80.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8426954179906159,
+                "mean_target_log_probability": -9.71199905872345,
+                "mean_target_rank": 57.1875,
+                "median_exposure_bits": 1.3345415609426916,
+                "median_target_rank": 51.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+        "model_label": "non_dp_canary",
+        "run_id": "canary_full_20260820",
+        "schema_version": 1
+      }
+    }
+  },
+  "stress_canary": {
+    "statistics": {
+      "stress_base": {
+        "control_exposure_bits": 1.3863842838796647,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.40625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -12.05164922773838,
+        "exposure_gap_bits": 0.09887353098108753,
+        "member_exposure_bits": 1.4852578148607523,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.03125,
+        "member_open_exact": 0,
+        "member_target_log_probability": -12.028890818357468,
+        "target_log_probability_gap": 0.02275840938091278,
+        "target_score_membership_auc": 0.515380859375
+      },
+      "stress_dp_eps2": {
+        "control_exposure_bits": 1.3773232389537213,
+        "control_guided_exact": 0,
+        "control_mean_rank": 65.15625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -11.871476158499718,
+        "exposure_gap_bits": 0.09754358029283394,
+        "member_exposure_bits": 1.4748668192465553,
+        "member_guided_exact": 0,
+        "member_mean_rank": 61.578125,
+        "member_open_exact": 0,
+        "member_target_log_probability": -11.783603876829147,
+        "target_log_probability_gap": 0.08787228167057037,
+        "target_score_membership_auc": 0.537841796875
+      },
+      "stress_non_dp": {
+        "control_exposure_bits": 1.5146892897131619,
+        "control_guided_exact": 0,
+        "control_mean_rank": 61.515625,
+        "control_open_exact": 0,
+        "control_target_log_probability": -10.24918931722641,
+        "exposure_gap_bits": -0.14692357181039828,
+        "member_exposure_bits": 1.3677657179027636,
+        "member_guided_exact": 0,
+        "member_mean_rank": 64.078125,
+        "member_open_exact": 0,
+        "member_target_log_probability": -10.255912810564041,
+        "target_log_probability_gap": -0.006723493337631226,
+        "target_score_membership_auc": 0.494140625
+      }
+    },
+    "summaries": {
+      "stress_base": {
+        "adapter_path": null,
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 112.49656036682427,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4852578148607523,
+              "mean_target_log_probability": -12.028890818357468,
+              "mean_target_rank": 61.03125,
+              "median_exposure_bits": 1.1052331775148199,
+              "median_target_rank": 59.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.9866534243854175,
+                "mean_target_log_probability": -11.743778109550476,
+                "mean_target_rank": 46.0625,
+                "median_exposure_bits": 1.8097694674555136,
+                "median_target_rank": 37.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1768647795686156,
+                "mean_target_log_probability": -12.197461783885956,
+                "mean_target_rank": 69.75,
+                "median_exposure_bits": 0.8916270709023473,
+                "median_target_rank": 69.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.2139471508098554,
+                "mean_target_log_probability": -12.092951536178589,
+                "mean_target_rank": 62.125,
+                "median_exposure_bits": 1.218878787889464,
+                "median_target_rank": 55.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5635659046791237,
+                "mean_target_log_probability": -12.08137184381485,
+                "mean_target_rank": 66.1875,
+                "median_exposure_bits": 0.7417806326960261,
+                "median_target_rank": 78.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3863842838796647,
+              "mean_target_log_probability": -12.05164922773838,
+              "mean_target_rank": 65.40625,
+              "median_exposure_bits": 0.9125371587496609,
+              "median_target_rank": 68.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 0.9245332535961039,
+                "mean_target_log_probability": -12.399467527866364,
+                "mean_target_rank": 85.375,
+                "median_exposure_bits": 0.3718219322429168,
+                "median_target_rank": 99.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8172632281770582,
+                "mean_target_log_probability": -11.798996806144714,
+                "mean_target_rank": 55.25,
+                "median_exposure_bits": 1.1422334682367086,
+                "median_target_rank": 58.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.644993626070076,
+                "mean_target_log_probability": -11.841741502285004,
+                "mean_target_rank": 52.3125,
+                "median_exposure_bits": 1.4795127005913469,
+                "median_target_rank": 46.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1587470276754208,
+                "mean_target_log_probability": -12.16639107465744,
+                "mean_target_rank": 68.6875,
+                "median_exposure_bits": 0.9450846728606033,
+                "median_target_rank": 66.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "b6e683b874797d74ae4b1c752d8bead296f74a7ead8030f7648466a502176df3",
+        "model_label": "stress_base",
+        "run_id": "canary_stress_20260820",
+        "schema_version": 1
+      },
+      "stress_dp_eps2": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/stress_full_20260820/hooks_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 151.1186521956697,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.4748668192465553,
+              "mean_target_log_probability": -11.783603876829147,
+              "mean_target_rank": 61.578125,
+              "median_exposure_bits": 1.2720795454368012,
+              "median_target_rank": 53.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.8622713442368701,
+                "mean_target_log_probability": -11.535909235477448,
+                "mean_target_rank": 48.5,
+                "median_exposure_bits": 1.7910737425570513,
+                "median_target_rank": 37.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.164600991515321,
+                "mean_target_log_probability": -11.964894950389862,
+                "mean_target_rank": 72.0625,
+                "median_exposure_bits": 0.8708642118585743,
+                "median_target_rank": 70.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.3360487258703675,
+                "mean_target_log_probability": -11.790720522403717,
+                "mean_target_rank": 58.1875,
+                "median_exposure_bits": 1.5579147404457823,
+                "median_target_rank": 43.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.536546215363663,
+                "mean_target_log_probability": -11.842890799045563,
+                "mean_target_rank": 67.5625,
+                "median_exposure_bits": 0.6206801814877121,
+                "median_target_rank": 83.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3773232389537213,
+              "mean_target_log_probability": -11.871476158499718,
+              "mean_target_rank": 65.15625,
+              "median_exposure_bits": 0.9020063509857459,
+              "median_target_rank": 68.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.0392645105699323,
+                "mean_target_log_probability": -12.173208832740784,
+                "mean_target_rank": 82.9375,
+                "median_exposure_bits": 0.4844940462811471,
+                "median_target_rank": 91.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.7415715144353003,
+                "mean_target_log_probability": -11.62730324268341,
+                "mean_target_rank": 56.25,
+                "median_exposure_bits": 1.106456837724192,
+                "median_target_rank": 59.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5383714594803362,
+                "mean_target_log_probability": -11.715888679027557,
+                "mean_target_rank": 54.25,
+                "median_exposure_bits": 1.2333351338470835,
+                "median_target_rank": 54.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1900854713293194,
+                "mean_target_log_probability": -11.96950387954712,
+                "mean_target_rank": 67.1875,
+                "median_exposure_bits": 1.0113600382500416,
+                "median_target_rank": 63.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "b6e683b874797d74ae4b1c752d8bead296f74a7ead8030f7648466a502176df3",
+        "model_label": "stress_dp_eps2",
+        "run_id": "canary_stress_20260820",
+        "schema_version": 1
+      },
+      "stress_non_dp": {
+        "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/stress_full_20260820/non_dp/final_adapter",
+        "candidate_count": 128,
+        "decoding": {
+          "do_sample": false,
+          "num_beams": 1
+        },
+        "elapsed_seconds": 149.4686374189332,
+        "experiment": "synthetic_canary_extraction",
+        "gpu_name": "NVIDIA RTX A6000",
+        "groups": {
+          "member": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.3677657179027636,
+              "mean_target_log_probability": -10.255912810564041,
+              "mean_target_rank": 64.078125,
+              "median_exposure_bits": 1.0117179382923354,
+              "median_target_rank": 63.5,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1363557413006165,
+                "mean_target_log_probability": -10.343177616596222,
+                "mean_target_rank": 72.6875,
+                "median_exposure_bits": 0.6349772485603995,
+                "median_target_rank": 82.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.2568735660626547,
+                "mean_target_log_probability": -10.292396128177643,
+                "mean_target_rank": 67.3125,
+                "median_exposure_bits": 0.9706658748297143,
+                "median_target_rank": 66.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.4650228039370903,
+                "mean_target_log_probability": -10.163352251052856,
+                "mean_target_rank": 52.5625,
+                "median_exposure_bits": 1.4001638275818178,
+                "median_target_rank": 48.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.6128107603106938,
+                "mean_target_log_probability": -10.224725246429443,
+                "mean_target_rank": 63.75,
+                "median_exposure_bits": 0.9181751619920875,
+                "median_target_rank": 68.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          },
+          "nonmember_control": {
+            "all": {
+              "guided_exact_extraction_rate": 0.0,
+              "guided_exact_extractions": 0,
+              "mean_exposure_bits": 1.5146892897131619,
+              "mean_target_log_probability": -10.24918931722641,
+              "mean_target_rank": 61.515625,
+              "median_exposure_bits": 1.0227200765000832,
+              "median_target_rank": 63.0,
+              "open_exact_extraction_rate": 0.0,
+              "open_exact_extractions": 0,
+              "samples": 64
+            },
+            "by_repetition": {
+              "16": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.5540773053797823,
+                "mean_target_log_probability": -10.268270313739777,
+                "mean_target_rank": 65.875,
+                "median_exposure_bits": 0.8916270709023473,
+                "median_target_rank": 69.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "32": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.7288713037645016,
+                "mean_target_log_probability": -10.203252732753754,
+                "mean_target_rank": 57.4375,
+                "median_exposure_bits": 1.3141116778310384,
+                "median_target_rank": 51.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "4": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.602759069548246,
+                "mean_target_log_probability": -10.217088222503662,
+                "mean_target_rank": 56.75,
+                "median_exposure_bits": 1.3412936931175654,
+                "median_target_rank": 51.0,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              },
+              "8": {
+                "guided_exact_extraction_rate": 0.0,
+                "guided_exact_extractions": 0,
+                "mean_exposure_bits": 1.1730494801601166,
+                "mean_target_log_probability": -10.308145999908447,
+                "mean_target_rank": 66.0,
+                "median_exposure_bits": 0.9023138962986308,
+                "median_target_rank": 68.5,
+                "open_exact_extraction_rate": 0.0,
+                "open_exact_extractions": 0,
+                "samples": 16
+              }
+            }
+          }
+        },
+        "manifest_payload_sha256": "b6e683b874797d74ae4b1c752d8bead296f74a7ead8030f7648466a502176df3",
+        "model_label": "stress_non_dp",
+        "run_id": "canary_stress_20260820",
+        "schema_version": 1
+      }
+    }
+  },
+  "training": {
+    "dp_eps0p5_canary": {
+      "accountant": "prv",
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps0p5/hooks_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2827.993150835857,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": 0.04360720249785268,
+          "step": 1
+        },
+        {
+          "epsilon": 0.09362543231070629,
+          "step": 10
+        },
+        {
+          "epsilon": 0.1251499432508532,
+          "step": 20
+        },
+        {
+          "epsilon": 0.1498582018139664,
+          "step": 30
+        },
+        {
+          "epsilon": 0.1709720159126703,
+          "step": 40
+        },
+        {
+          "epsilon": 0.18976134255955515,
+          "step": 50
+        },
+        {
+          "epsilon": 0.20688498082393003,
+          "step": 60
+        },
+        {
+          "epsilon": 0.22273749866878828,
+          "step": 70
+        },
+        {
+          "epsilon": 0.23757613114362244,
+          "step": 80
+        },
+        {
+          "epsilon": 0.25158349344512293,
+          "step": 90
+        },
+        {
+          "epsilon": 0.2648918706804896,
+          "step": 100
+        },
+        {
+          "epsilon": 0.2776015310547416,
+          "step": 110
+        },
+        {
+          "epsilon": 0.2897899880507796,
+          "step": 120
+        },
+        {
+          "epsilon": 0.3015208829171642,
+          "step": 130
+        },
+        {
+          "epsilon": 0.31284424262506033,
+          "step": 140
+        },
+        {
+          "epsilon": 0.3238022818894641,
+          "step": 150
+        },
+        {
+          "epsilon": 0.334430144935265,
+          "step": 160
+        },
+        {
+          "epsilon": 0.3447577790422775,
+          "step": 170
+        },
+        {
+          "epsilon": 0.3548108656507519,
+          "step": 180
+        },
+        {
+          "epsilon": 0.36461125382372434,
+          "step": 190
+        },
+        {
+          "epsilon": 0.3741782345829888,
+          "step": 200
+        },
+        {
+          "epsilon": 0.38352886614050596,
+          "step": 210
+        },
+        {
+          "epsilon": 0.39267812894424603,
+          "step": 220
+        },
+        {
+          "epsilon": 0.4016392718946353,
+          "step": 230
+        },
+        {
+          "epsilon": 0.41042408769870103,
+          "step": 240
+        },
+        {
+          "epsilon": 0.4190431405526074,
+          "step": 250
+        },
+        {
+          "epsilon": 0.4275065021703322,
+          "step": 260
+        },
+        {
+          "epsilon": 0.43582242039554137,
+          "step": 270
+        },
+        {
+          "epsilon": 0.4439990434924337,
+          "step": 280
+        },
+        {
+          "epsilon": 0.4520436809953206,
+          "step": 290
+        },
+        {
+          "epsilon": 0.4599628321956106,
+          "step": 300
+        },
+        {
+          "epsilon": 0.46776260447371715,
+          "step": 310
+        },
+        {
+          "epsilon": 0.4754485965827237,
+          "step": 320
+        },
+        {
+          "epsilon": 0.4830260885664962,
+          "step": 330
+        },
+        {
+          "epsilon": 0.4904998175862401,
+          "step": 340
+        },
+        {
+          "epsilon": 0.4919824696266232,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.6419815421104431,
+        "example_mean_ppl": 5.165394825308055,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.728430011331499,
+        "token_mean_ppl": 5.631805093796097
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": 0.4919824696266232,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "0",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0247804384965162,
+      "loss_last": 1.8016536312718545,
+      "loss_mean": 1.7097137603542645,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "max_grad_norm": 1.0,
+      "member_canaries": 64,
+      "method": "hooks_dp",
+      "noise_multiplier": 2.578125,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73104953765869,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": 1e-05,
+      "target_epsilon": 0.5,
+      "throughput_samples_per_sec": 15.346755790793686,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    },
+    "dp_eps2_canary": {
+      "accountant": "prv",
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/hooks_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2814.2824922883883,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": 0.37653119593005363,
+          "step": 1
+        },
+        {
+          "epsilon": 0.6574044885942497,
+          "step": 10
+        },
+        {
+          "epsilon": 0.7759943099839947,
+          "step": 20
+        },
+        {
+          "epsilon": 0.8601661160007177,
+          "step": 30
+        },
+        {
+          "epsilon": 0.9294061870273036,
+          "step": 40
+        },
+        {
+          "epsilon": 0.990068005005372,
+          "step": 50
+        },
+        {
+          "epsilon": 1.0450507597466996,
+          "step": 60
+        },
+        {
+          "epsilon": 1.0959324441605254,
+          "step": 70
+        },
+        {
+          "epsilon": 1.1436716566195169,
+          "step": 80
+        },
+        {
+          "epsilon": 1.1888985861120227,
+          "step": 90
+        },
+        {
+          "epsilon": 1.2320521218433576,
+          "step": 100
+        },
+        {
+          "epsilon": 1.2734520455281284,
+          "step": 110
+        },
+        {
+          "epsilon": 1.3133395657048965,
+          "step": 120
+        },
+        {
+          "epsilon": 1.3519027483556123,
+          "step": 130
+        },
+        {
+          "epsilon": 1.3892910444412192,
+          "step": 140
+        },
+        {
+          "epsilon": 1.4256262614370117,
+          "step": 150
+        },
+        {
+          "epsilon": 1.461009079006486,
+          "step": 160
+        },
+        {
+          "epsilon": 1.4955242818375403,
+          "step": 170
+        },
+        {
+          "epsilon": 1.5292437575284477,
+          "step": 180
+        },
+        {
+          "epsilon": 1.562229517941533,
+          "step": 190
+        },
+        {
+          "epsilon": 1.5945352717457553,
+          "step": 200
+        },
+        {
+          "epsilon": 1.626208304679701,
+          "step": 210
+        },
+        {
+          "epsilon": 1.6572902056865904,
+          "step": 220
+        },
+        {
+          "epsilon": 1.6878179770700683,
+          "step": 230
+        },
+        {
+          "epsilon": 1.7178247338808643,
+          "step": 240
+        },
+        {
+          "epsilon": 1.747340305922433,
+          "step": 250
+        },
+        {
+          "epsilon": 1.776391574194096,
+          "step": 260
+        },
+        {
+          "epsilon": 1.8050029299402628,
+          "step": 270
+        },
+        {
+          "epsilon": 1.8331967396858186,
+          "step": 280
+        },
+        {
+          "epsilon": 1.8609932803788625,
+          "step": 290
+        },
+        {
+          "epsilon": 1.8884113447258046,
+          "step": 300
+        },
+        {
+          "epsilon": 1.9154681370272348,
+          "step": 310
+        },
+        {
+          "epsilon": 1.9421795692160078,
+          "step": 320
+        },
+        {
+          "epsilon": 1.9685603843872752,
+          "step": 330
+        },
+        {
+          "epsilon": 1.9946243324814956,
+          "step": 340
+        },
+        {
+          "epsilon": 1.9998002058381235,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.5740879607200622,
+        "example_mean_ppl": 4.8263378005359,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.6681317678665846,
+        "token_mean_ppl": 5.302252699340456
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": 1.9998002058381235,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "1",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0247804384965162,
+      "loss_last": 1.7240201580908991,
+      "loss_mean": 1.6206204587593271,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "max_grad_norm": 1.0,
+      "member_canaries": 64,
+      "method": "hooks_dp",
+      "noise_multiplier": 1.015625,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73104953765869,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": 1e-05,
+      "target_epsilon": 2.0,
+      "throughput_samples_per_sec": 15.430432615954365,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    },
+    "dp_eps8_canary": {
+      "accountant": "prv",
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps8/hooks_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2886.1425826819614,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": 2.3414420234921915,
+          "step": 1
+        },
+        {
+          "epsilon": 3.4183409661824053,
+          "step": 10
+        },
+        {
+          "epsilon": 3.8215982057793174,
+          "step": 20
+        },
+        {
+          "epsilon": 4.109526529214772,
+          "step": 30
+        },
+        {
+          "epsilon": 4.34896557659958,
+          "step": 40
+        },
+        {
+          "epsilon": 4.560121832633911,
+          "step": 50
+        },
+        {
+          "epsilon": 4.75195696568851,
+          "step": 60
+        },
+        {
+          "epsilon": 4.929404433034367,
+          "step": 70
+        },
+        {
+          "epsilon": 5.095556774149779,
+          "step": 80
+        },
+        {
+          "epsilon": 5.2524950065919676,
+          "step": 90
+        },
+        {
+          "epsilon": 5.401731812006012,
+          "step": 100
+        },
+        {
+          "epsilon": 5.544407855067205,
+          "step": 110
+        },
+        {
+          "epsilon": 5.6814130179974525,
+          "step": 120
+        },
+        {
+          "epsilon": 5.813459861279291,
+          "step": 130
+        },
+        {
+          "epsilon": 5.941099770259239,
+          "step": 140
+        },
+        {
+          "epsilon": 6.064829192370718,
+          "step": 150
+        },
+        {
+          "epsilon": 6.185023772260997,
+          "step": 160
+        },
+        {
+          "epsilon": 6.302018618024093,
+          "step": 170
+        },
+        {
+          "epsilon": 6.416108324957412,
+          "step": 180
+        },
+        {
+          "epsilon": 6.527531016693923,
+          "step": 190
+        },
+        {
+          "epsilon": 6.63649813613223,
+          "step": 200
+        },
+        {
+          "epsilon": 6.743195835491104,
+          "step": 210
+        },
+        {
+          "epsilon": 6.84778782001081,
+          "step": 220
+        },
+        {
+          "epsilon": 6.950418807149021,
+          "step": 230
+        },
+        {
+          "epsilon": 7.051217556122805,
+          "step": 240
+        },
+        {
+          "epsilon": 7.150299840487142,
+          "step": 250
+        },
+        {
+          "epsilon": 7.247771941013395,
+          "step": 260
+        },
+        {
+          "epsilon": 7.343726943073268,
+          "step": 270
+        },
+        {
+          "epsilon": 7.43824440023424,
+          "step": 280
+        },
+        {
+          "epsilon": 7.5314024433404505,
+          "step": 290
+        },
+        {
+          "epsilon": 7.623278353231595,
+          "step": 300
+        },
+        {
+          "epsilon": 7.713932076476194,
+          "step": 310
+        },
+        {
+          "epsilon": 7.803418391179388,
+          "step": 320
+        },
+        {
+          "epsilon": 7.89180243351116,
+          "step": 330
+        },
+        {
+          "epsilon": 7.979124937761249,
+          "step": 340
+        },
+        {
+          "epsilon": 7.996468326483455,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.5405768609046937,
+        "example_mean_ppl": 4.667281867015493,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.6396269961162435,
+        "token_mean_ppl": 5.153246972564867
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": 7.996468326483455,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "3",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0247804384965162,
+      "loss_last": 1.6784055463729366,
+      "loss_mean": 1.5803109658411125,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "max_grad_norm": 1.0,
+      "member_canaries": 64,
+      "method": "hooks_dp",
+      "noise_multiplier": 0.6005859375,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73104953765869,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": 1e-05,
+      "target_epsilon": 8.0,
+      "throughput_samples_per_sec": 15.065122507433854,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    },
+    "non_dp_canary": {
+      "accountant": null,
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/non_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2565.499138490297,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": null,
+          "step": 1
+        },
+        {
+          "epsilon": null,
+          "step": 10
+        },
+        {
+          "epsilon": null,
+          "step": 20
+        },
+        {
+          "epsilon": null,
+          "step": 30
+        },
+        {
+          "epsilon": null,
+          "step": 40
+        },
+        {
+          "epsilon": null,
+          "step": 50
+        },
+        {
+          "epsilon": null,
+          "step": 60
+        },
+        {
+          "epsilon": null,
+          "step": 70
+        },
+        {
+          "epsilon": null,
+          "step": 80
+        },
+        {
+          "epsilon": null,
+          "step": 90
+        },
+        {
+          "epsilon": null,
+          "step": 100
+        },
+        {
+          "epsilon": null,
+          "step": 110
+        },
+        {
+          "epsilon": null,
+          "step": 120
+        },
+        {
+          "epsilon": null,
+          "step": 130
+        },
+        {
+          "epsilon": null,
+          "step": 140
+        },
+        {
+          "epsilon": null,
+          "step": 150
+        },
+        {
+          "epsilon": null,
+          "step": 160
+        },
+        {
+          "epsilon": null,
+          "step": 170
+        },
+        {
+          "epsilon": null,
+          "step": 180
+        },
+        {
+          "epsilon": null,
+          "step": 190
+        },
+        {
+          "epsilon": null,
+          "step": 200
+        },
+        {
+          "epsilon": null,
+          "step": 210
+        },
+        {
+          "epsilon": null,
+          "step": 220
+        },
+        {
+          "epsilon": null,
+          "step": 230
+        },
+        {
+          "epsilon": null,
+          "step": 240
+        },
+        {
+          "epsilon": null,
+          "step": 250
+        },
+        {
+          "epsilon": null,
+          "step": 260
+        },
+        {
+          "epsilon": null,
+          "step": 270
+        },
+        {
+          "epsilon": null,
+          "step": 280
+        },
+        {
+          "epsilon": null,
+          "step": 290
+        },
+        {
+          "epsilon": null,
+          "step": 300
+        },
+        {
+          "epsilon": null,
+          "step": 310
+        },
+        {
+          "epsilon": null,
+          "step": 320
+        },
+        {
+          "epsilon": null,
+          "step": 330
+        },
+        {
+          "epsilon": null,
+          "step": 340
+        },
+        {
+          "epsilon": null,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.2993715405464172,
+        "example_mean_ppl": 3.666991387903769,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.4437083566802804,
+        "token_mean_ppl": 4.236376719744982
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": null,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "0",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0247804384965162,
+      "loss_last": 1.1985253364809099,
+      "loss_mean": 1.2367933352948173,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "max_grad_norm": null,
+      "member_canaries": 64,
+      "method": "non_dp",
+      "noise_multiplier": null,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73002338409424,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": null,
+      "target_epsilon": null,
+      "throughput_samples_per_sec": 16.90632916398547,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    },
+    "stress_dp_eps2": {
+      "accountant": "prv",
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/stress_full_20260820/hooks_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2885.0240408871323,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": 0.37653119593005363,
+          "step": 1
+        },
+        {
+          "epsilon": 0.6574044885942497,
+          "step": 10
+        },
+        {
+          "epsilon": 0.7759943099839947,
+          "step": 20
+        },
+        {
+          "epsilon": 0.8601661160007177,
+          "step": 30
+        },
+        {
+          "epsilon": 0.9294061870273036,
+          "step": 40
+        },
+        {
+          "epsilon": 0.990068005005372,
+          "step": 50
+        },
+        {
+          "epsilon": 1.0450507597466996,
+          "step": 60
+        },
+        {
+          "epsilon": 1.0959324441605254,
+          "step": 70
+        },
+        {
+          "epsilon": 1.1436716566195169,
+          "step": 80
+        },
+        {
+          "epsilon": 1.1888985861120227,
+          "step": 90
+        },
+        {
+          "epsilon": 1.2320521218433576,
+          "step": 100
+        },
+        {
+          "epsilon": 1.2734520455281284,
+          "step": 110
+        },
+        {
+          "epsilon": 1.3133395657048965,
+          "step": 120
+        },
+        {
+          "epsilon": 1.3519027483556123,
+          "step": 130
+        },
+        {
+          "epsilon": 1.3892910444412192,
+          "step": 140
+        },
+        {
+          "epsilon": 1.4256262614370117,
+          "step": 150
+        },
+        {
+          "epsilon": 1.461009079006486,
+          "step": 160
+        },
+        {
+          "epsilon": 1.4955242818375403,
+          "step": 170
+        },
+        {
+          "epsilon": 1.5292437575284477,
+          "step": 180
+        },
+        {
+          "epsilon": 1.562229517941533,
+          "step": 190
+        },
+        {
+          "epsilon": 1.5945352717457553,
+          "step": 200
+        },
+        {
+          "epsilon": 1.626208304679701,
+          "step": 210
+        },
+        {
+          "epsilon": 1.6572902056865904,
+          "step": 220
+        },
+        {
+          "epsilon": 1.6878179770700683,
+          "step": 230
+        },
+        {
+          "epsilon": 1.7178247338808643,
+          "step": 240
+        },
+        {
+          "epsilon": 1.747340305922433,
+          "step": 250
+        },
+        {
+          "epsilon": 1.776391574194096,
+          "step": 260
+        },
+        {
+          "epsilon": 1.8050029299402628,
+          "step": 270
+        },
+        {
+          "epsilon": 1.8331967396858186,
+          "step": 280
+        },
+        {
+          "epsilon": 1.8609932803788625,
+          "step": 290
+        },
+        {
+          "epsilon": 1.8884113447258046,
+          "step": 300
+        },
+        {
+          "epsilon": 1.9154681370272348,
+          "step": 310
+        },
+        {
+          "epsilon": 1.9421795692160078,
+          "step": 320
+        },
+        {
+          "epsilon": 1.9685603843872752,
+          "step": 330
+        },
+        {
+          "epsilon": 1.9946243324814956,
+          "step": 340
+        },
+        {
+          "epsilon": 1.9998002058381235,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.573862340450287,
+        "example_mean_ppl": 4.82524900373125,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.6679554117800937,
+        "token_mean_ppl": 5.301317697253892
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": 1.9998002058381235,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "2",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0257761478424072,
+      "loss_last": 1.7242396570021106,
+      "loss_mean": 1.6202075513963334,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "b6e683b874797d74ae4b1c752d8bead296f74a7ead8030f7648466a502176df3",
+      "max_grad_norm": 1.0,
+      "member_canaries": 64,
+      "method": "hooks_dp",
+      "noise_multiplier": 1.015625,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73104953765869,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": 1e-05,
+      "target_epsilon": 2.0,
+      "throughput_samples_per_sec": 15.051800845533311,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    },
+    "stress_non_dp": {
+      "accountant": null,
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/stress_full_20260820/non_dp/final_adapter",
+      "canaries_never_sampled": 0,
+      "canary_sample_count_mean": 6.015625,
+      "canary_sample_counts": {
+        "0": 6,
+        "1": 5,
+        "10": 6,
+        "11": 6,
+        "12": 9,
+        "13": 4,
+        "14": 5,
+        "15": 4,
+        "16": 7,
+        "17": 5,
+        "18": 4,
+        "19": 4,
+        "2": 9,
+        "20": 6,
+        "21": 5,
+        "22": 10,
+        "23": 5,
+        "24": 5,
+        "25": 4,
+        "26": 8,
+        "27": 7,
+        "28": 8,
+        "29": 5,
+        "3": 5,
+        "30": 8,
+        "31": 10,
+        "32": 3,
+        "33": 11,
+        "34": 5,
+        "35": 8,
+        "36": 6,
+        "37": 9,
+        "38": 6,
+        "39": 7,
+        "4": 6,
+        "40": 5,
+        "41": 5,
+        "42": 4,
+        "43": 5,
+        "44": 8,
+        "45": 6,
+        "46": 6,
+        "47": 7,
+        "48": 4,
+        "49": 6,
+        "5": 6,
+        "50": 5,
+        "51": 3,
+        "52": 7,
+        "53": 4,
+        "54": 7,
+        "55": 9,
+        "56": 5,
+        "57": 8,
+        "58": 3,
+        "59": 5,
+        "6": 3,
+        "60": 3,
+        "61": 6,
+        "62": 4,
+        "63": 7,
+        "7": 8,
+        "8": 9,
+        "9": 6
+      },
+      "completed_steps": 342,
+      "elapsed_training_sec": 2554.754605039954,
+      "epochs": 6,
+      "epsilon_trace": [
+        {
+          "epsilon": null,
+          "step": 1
+        },
+        {
+          "epsilon": null,
+          "step": 10
+        },
+        {
+          "epsilon": null,
+          "step": 20
+        },
+        {
+          "epsilon": null,
+          "step": 30
+        },
+        {
+          "epsilon": null,
+          "step": 40
+        },
+        {
+          "epsilon": null,
+          "step": 50
+        },
+        {
+          "epsilon": null,
+          "step": 60
+        },
+        {
+          "epsilon": null,
+          "step": 70
+        },
+        {
+          "epsilon": null,
+          "step": 80
+        },
+        {
+          "epsilon": null,
+          "step": 90
+        },
+        {
+          "epsilon": null,
+          "step": 100
+        },
+        {
+          "epsilon": null,
+          "step": 110
+        },
+        {
+          "epsilon": null,
+          "step": 120
+        },
+        {
+          "epsilon": null,
+          "step": 130
+        },
+        {
+          "epsilon": null,
+          "step": 140
+        },
+        {
+          "epsilon": null,
+          "step": 150
+        },
+        {
+          "epsilon": null,
+          "step": 160
+        },
+        {
+          "epsilon": null,
+          "step": 170
+        },
+        {
+          "epsilon": null,
+          "step": 180
+        },
+        {
+          "epsilon": null,
+          "step": 190
+        },
+        {
+          "epsilon": null,
+          "step": 200
+        },
+        {
+          "epsilon": null,
+          "step": 210
+        },
+        {
+          "epsilon": null,
+          "step": 220
+        },
+        {
+          "epsilon": null,
+          "step": 230
+        },
+        {
+          "epsilon": null,
+          "step": 240
+        },
+        {
+          "epsilon": null,
+          "step": 250
+        },
+        {
+          "epsilon": null,
+          "step": 260
+        },
+        {
+          "epsilon": null,
+          "step": 270
+        },
+        {
+          "epsilon": null,
+          "step": 280
+        },
+        {
+          "epsilon": null,
+          "step": 290
+        },
+        {
+          "epsilon": null,
+          "step": 300
+        },
+        {
+          "epsilon": null,
+          "step": 310
+        },
+        {
+          "epsilon": null,
+          "step": 320
+        },
+        {
+          "epsilon": null,
+          "step": 330
+        },
+        {
+          "epsilon": null,
+          "step": 340
+        },
+        {
+          "epsilon": null,
+          "step": 342
+        }
+      ],
+      "eval": {
+        "example_mean_loss": 1.3000979256629943,
+        "example_mean_ppl": 3.66965600352196,
+        "response_tokens": 56266,
+        "samples": 800,
+        "token_mean_loss": 1.4441886041911274,
+        "token_mean_ppl": 4.238411717731896
+      },
+      "eval_samples": 800,
+      "experiment": "synthetic_canary_training",
+      "final_epsilon": null,
+      "gpu_name": "NVIDIA RTX A6000",
+      "gpu_visible": "1",
+      "learning_rate": 0.0001,
+      "logical_batch_size": 128,
+      "loss_first": 2.0257761478424072,
+      "loss_last": 1.1979850799806657,
+      "loss_mean": 1.2361281872080272,
+      "lot_size_mean": 126.82163742690058,
+      "manifest_payload_sha256": "b6e683b874797d74ae4b1c752d8bead296f74a7ead8030f7648466a502176df3",
+      "max_grad_norm": null,
+      "member_canaries": 64,
+      "method": "non_dp",
+      "noise_multiplier": null,
+      "nonmember_controls": 64,
+      "peak_vram_gb": 34.73002338409424,
+      "physical_batch_size": 16,
+      "planned_steps": 342,
+      "run_type": "full",
+      "sample_rate": 0.017777777777777778,
+      "scheduler": "cosine",
+      "schema_version": 1,
+      "status": "completed",
+      "target_delta": null,
+      "target_epsilon": null,
+      "throughput_samples_per_sec": 16.977526684584088,
+      "total_examples_processed": 43373,
+      "train_samples": 7200,
+      "trainable_parameters": 6842368,
+      "warmup_steps": 5
+    }
+  }
+}

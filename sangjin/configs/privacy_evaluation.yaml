@@ -1,0 +1,92 @@
+paths:
+  prefix_suffix_output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/prefix_suffix
+  canary_training_output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training
+  canary_evaluation_output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_evaluation
+  hf_home: /home/sangjin/.cache/huggingface
+  hf_hub_cache: /home/sangjin/.cache/huggingface/hub
+
+runtime:
+  seed: 42
+
+dataset:
+  name: medalpaca/medical_meadow_medical_flashcards
+  split: train
+  selection: shuffled
+  num_samples: 8000
+  train_size: 7200
+  eval_size: 800
+  train_fraction: 0.9
+  max_length: 256
+
+model:
+  id: google/vaultgemma-1b
+  load_in_4bit: true
+  prepare_kbit: true
+  use_gradient_checkpointing: false
+  attn_implementation: eager
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  logical_batch_size: 128
+  physical_batch_size: 16
+  eval_batch_size: 16
+  epochs: 6
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  scheduler: cosine
+  warmup_steps: 5
+  target_delta: 0.00001
+  max_grad_norm: 1.0
+  accountant: prv
+  logging_steps: 10
+
+prefix_suffix:
+  selection: head
+  generation_batch_size: 8
+  profiles:
+    - name: qa_member_10_20
+      split: member
+      prefix_tokens: 10
+      suffix_tokens: 20
+      sample_count: 196
+    - name: qa_nonmember_10_20
+      split: nonmember
+      prefix_tokens: 10
+      suffix_tokens: 20
+      sample_count: 196
+    - name: vaultgemma_member_50_50
+      split: member
+      prefix_tokens: 50
+      suffix_tokens: 50
+      sample_count: 128
+
+canary:
+  manifest_seed: 20260820
+  member_count: 64
+  control_count: 64
+  answer_style: verbose
+  repetition_levels:
+    - 1
+    - 2
+    - 4
+    - 8
+
+canary_evaluation:
+  generation_batch_size: 16
+  score_batch_size: 64
+  open_max_new_tokens: 64
+  guided_max_new_tokens: 12

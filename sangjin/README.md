@@ -29,6 +29,15 @@ VaultGemma-1B에 LoRA를 적용하고, 동일한 DP-SGD 조건에서 per-example
 
 - `code/`: 학습 및 결과 수집 코드
 - `configs/`: BF16, 4-bit, smoke test 설정
-- `results/`: BF16 및 4-bit 실험 결과 요약
+- `results/`: BF16·4-bit 비교와 실증적 privacy 평가 요약
+
+## 실증적 Privacy 평가
+
+기존 체크포인트를 대상으로 실제 학습 문장의 Prefix-Suffix 추출을 수행하고, 합성 식별자만 사용하는 Synthetic Canary를 삽입해 non-DP와 DP epsilon=2를 다시 학습한다. 실제 개인정보는 사용하지 않는다.
+
+- Short continuation: response prefix 10 token에서 suffix 20 token 추출
+- Long continuation: response prefix 50 token에서 suffix 50 token 추출
+- Synthetic Canary: member 64개와 non-member control 64개
+- 지표: exact/approximate extraction, member excess, candidate rank와 exposure
 
 체크포인트, LoRA adapter, 데이터셋 원본, launcher log와 GPU 원시 로그는 저장소에 포함하지 않는다.
