@@ -171,3 +171,42 @@ def test_prefix_design_and_results_are_separate_artifacts() -> None:
     design_text = design.read_text(encoding="utf-8")
     assert "## 지표 정의" in design_text
     assert "## 산출물 분리" in design_text
+
+
+def test_canonical_10x10_n500_result_contract() -> None:
+    result = load_json(RESULTS_ROOT / "2026-08-20-prefix-10x10-n500.json")
+    assert set(result["statistics"]) == {
+        "base_n500",
+        "non_dp_n500",
+        "dp_eps0p5_n500",
+        "dp_eps2_n500",
+        "dp_eps8_n500",
+    }
+    expected_exact = {
+        "base_n500": (44, 45),
+        "non_dp_n500": (79, 79),
+        "dp_eps0p5_n500": (57, 59),
+        "dp_eps2_n500": (58, 62),
+        "dp_eps8_n500": (56, 64),
+    }
+    for label, (member_exact, control_exact) in expected_exact.items():
+        statistics = result["statistics"][label]
+        assert statistics["member_total"] == 500
+        assert statistics["control_total"] == 500
+        assert statistics["member_exact"] == member_exact
+        assert statistics["control_exact"] == control_exact
+        assert statistics["exact_fisher_two_sided_p"] > 0.4
+
+    summaries = result["summaries"]
+    assert len(
+        {
+            summary["profiles"]["qa_member_10_10"]["case_source_indices_sha256"]
+            for summary in summaries.values()
+        }
+    ) == 1
+    assert len(
+        {
+            summary["profiles"]["qa_nonmember_10_10"]["case_source_indices_sha256"]
+            for summary in summaries.values()
+        }
+    ) == 1

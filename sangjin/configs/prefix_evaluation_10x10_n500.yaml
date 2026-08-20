@@ -1,0 +1,33 @@
+paths:
+  prefix_suffix_output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/prefix_suffix
+
+runtime:
+  seed: 42
+
+dataset:
+  name: medalpaca/medical_meadow_medical_flashcards
+  num_samples: 8000
+  train_size: 7200
+  eval_size: 800
+  max_length: 256
+
+model:
+  id: google/vaultgemma-1b
+  load_in_4bit: true
+  prepare_kbit: true
+  attn_implementation: eager
+
+prefix_suffix:
+  selection: shuffled
+  generation_batch_size: 16
+  profiles:
+    - name: qa_member_10_10
+      split: member
+      prefix_tokens: 10
+      suffix_tokens: 10
+      sample_count: 500
+    - name: qa_nonmember_10_10
+      split: nonmember
+      prefix_tokens: 10
+      suffix_tokens: 10
+      sample_count: 500

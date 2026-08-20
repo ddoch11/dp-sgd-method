@@ -1,0 +1,409 @@
+{
+  "control_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+  "member_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+  "schema_version": 1,
+  "statistics": {
+    "base_n500": {
+      "approximate_fisher_two_sided_p": 1.0,
+      "approximate_member_excess": 0.0020000000000000018,
+      "control_approximate": 56,
+      "control_edit_similarity": 0.3367999999999994,
+      "control_exact": 45,
+      "control_matching_prefix_tokens": 2.81,
+      "control_total": 500,
+      "exact_fisher_two_sided_p": 1.0,
+      "exact_member_excess": -0.0020000000000000018,
+      "member_approximate": 57,
+      "member_edit_similarity": 0.3289999999999993,
+      "member_exact": 44,
+      "member_matching_prefix_tokens": 2.7,
+      "member_total": 500
+    },
+    "dp_eps0p5_n500": {
+      "approximate_fisher_two_sided_p": 0.5921950497876507,
+      "approximate_member_excess": -0.013999999999999985,
+      "control_approximate": 77,
+      "control_edit_similarity": 0.3975999999999998,
+      "control_exact": 59,
+      "control_matching_prefix_tokens": 3.262,
+      "control_total": 500,
+      "exact_fisher_two_sided_p": 0.9213796959106605,
+      "exact_member_excess": -0.00399999999999999,
+      "member_approximate": 70,
+      "member_edit_similarity": 0.3767999999999995,
+      "member_exact": 57,
+      "member_matching_prefix_tokens": 3.058,
+      "member_total": 500
+    },
+    "dp_eps2_n500": {
+      "approximate_fisher_two_sided_p": 0.7916696513381458,
+      "approximate_member_excess": -0.008000000000000007,
+      "control_approximate": 78,
+      "control_edit_similarity": 0.40379999999999977,
+      "control_exact": 62,
+      "control_matching_prefix_tokens": 3.334,
+      "control_total": 500,
+      "exact_fisher_two_sided_p": 0.7704465241219204,
+      "exact_member_excess": -0.007999999999999993,
+      "member_approximate": 74,
+      "member_edit_similarity": 0.39639999999999936,
+      "member_exact": 58,
+      "member_matching_prefix_tokens": 3.154,
+      "member_total": 500
+    },
+    "dp_eps8_n500": {
+      "approximate_fisher_two_sided_p": 0.4846216048169597,
+      "approximate_member_excess": -0.018000000000000016,
+      "control_approximate": 82,
+      "control_edit_similarity": 0.4129999999999996,
+      "control_exact": 64,
+      "control_matching_prefix_tokens": 3.372,
+      "control_total": 500,
+      "exact_fisher_two_sided_p": 0.4958813539330929,
+      "exact_member_excess": -0.016,
+      "member_approximate": 73,
+      "member_edit_similarity": 0.3961999999999996,
+      "member_exact": 56,
+      "member_matching_prefix_tokens": 3.136,
+      "member_total": 500
+    },
+    "non_dp_n500": {
+      "approximate_fisher_two_sided_p": 0.8750909737561413,
+      "approximate_member_excess": -0.005999999999999978,
+      "control_approximate": 103,
+      "control_edit_similarity": 0.46839999999999987,
+      "control_exact": 79,
+      "control_matching_prefix_tokens": 3.82,
+      "control_total": 500,
+      "exact_fisher_two_sided_p": 1.0,
+      "exact_member_excess": 0.0,
+      "member_approximate": 100,
+      "member_edit_similarity": 0.4645999999999998,
+      "member_exact": 79,
+      "member_matching_prefix_tokens": 3.89,
+      "member_total": 500
+    }
+  },
+  "summaries": {
+    "base_n500": {
+      "adapter_path": null,
+      "dataset": {
+        "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+        "num_samples": 8000,
+        "selection": "shuffled",
+        "selection_seed": 42,
+        "source_fingerprint": "62ed809b7b7c1a36",
+        "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+        "source_size": 33955
+      },
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1
+      },
+      "elapsed_seconds": 50.28567110467702,
+      "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "excluded_selected_positions": 64,
+      "experiment": "prefix_suffix_extraction",
+      "gpu_name": "NVIDIA RTX A6000",
+      "model_id": "google/vaultgemma-1b",
+      "model_label": "base_n500",
+      "profiles": {
+        "qa_member_10_10": {
+          "approximate_match_rate_10pct": 0.114,
+          "approximate_matches_10pct": 57,
+          "case_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+          "definition": {
+            "name": "qa_member_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "member",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.088,
+          "exact_matches": 44,
+          "mean_matching_prefix_tokens": 2.7,
+          "mean_normalized_edit_similarity": 0.3289999999999993,
+          "mean_positional_token_accuracy": 0.3025999999999996,
+          "samples": 500
+        },
+        "qa_nonmember_10_10": {
+          "approximate_match_rate_10pct": 0.112,
+          "approximate_matches_10pct": 56,
+          "case_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+          "definition": {
+            "name": "qa_nonmember_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "nonmember",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.09,
+          "exact_matches": 45,
+          "mean_matching_prefix_tokens": 2.81,
+          "mean_normalized_edit_similarity": 0.3367999999999994,
+          "mean_positional_token_accuracy": 0.30399999999999955,
+          "samples": 500
+        }
+      },
+      "run_id": "canonical_response_10x10_n500_20260820",
+      "schema_version": 1,
+      "seed": 42
+    },
+    "dp_eps0p5_n500": {
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps0p5/hooks_dp/final_adapter",
+      "dataset": {
+        "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+        "num_samples": 8000,
+        "selection": "shuffled",
+        "selection_seed": 42,
+        "source_fingerprint": "62ed809b7b7c1a36",
+        "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+        "source_size": 33955
+      },
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1
+      },
+      "elapsed_seconds": 64.13539518043399,
+      "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "excluded_selected_positions": 64,
+      "experiment": "prefix_suffix_extraction",
+      "gpu_name": "NVIDIA RTX A6000",
+      "model_id": "google/vaultgemma-1b",
+      "model_label": "dp_eps0p5_n500",
+      "profiles": {
+        "qa_member_10_10": {
+          "approximate_match_rate_10pct": 0.14,
+          "approximate_matches_10pct": 70,
+          "case_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+          "definition": {
+            "name": "qa_member_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "member",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.114,
+          "exact_matches": 57,
+          "mean_matching_prefix_tokens": 3.058,
+          "mean_normalized_edit_similarity": 0.3767999999999995,
+          "mean_positional_token_accuracy": 0.33679999999999966,
+          "samples": 500
+        },
+        "qa_nonmember_10_10": {
+          "approximate_match_rate_10pct": 0.154,
+          "approximate_matches_10pct": 77,
+          "case_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+          "definition": {
+            "name": "qa_nonmember_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "nonmember",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.118,
+          "exact_matches": 59,
+          "mean_matching_prefix_tokens": 3.262,
+          "mean_normalized_edit_similarity": 0.3975999999999998,
+          "mean_positional_token_accuracy": 0.3613999999999996,
+          "samples": 500
+        }
+      },
+      "run_id": "canonical_response_10x10_n500_20260820",
+      "schema_version": 1,
+      "seed": 42
+    },
+    "dp_eps2_n500": {
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/hooks_dp/final_adapter",
+      "dataset": {
+        "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+        "num_samples": 8000,
+        "selection": "shuffled",
+        "selection_seed": 42,
+        "source_fingerprint": "62ed809b7b7c1a36",
+        "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+        "source_size": 33955
+      },
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1
+      },
+      "elapsed_seconds": 63.620077160187066,
+      "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "excluded_selected_positions": 64,
+      "experiment": "prefix_suffix_extraction",
+      "gpu_name": "NVIDIA RTX A6000",
+      "model_id": "google/vaultgemma-1b",
+      "model_label": "dp_eps2_n500",
+      "profiles": {
+        "qa_member_10_10": {
+          "approximate_match_rate_10pct": 0.148,
+          "approximate_matches_10pct": 74,
+          "case_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+          "definition": {
+            "name": "qa_member_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "member",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.116,
+          "exact_matches": 58,
+          "mean_matching_prefix_tokens": 3.154,
+          "mean_normalized_edit_similarity": 0.39639999999999936,
+          "mean_positional_token_accuracy": 0.35499999999999954,
+          "samples": 500
+        },
+        "qa_nonmember_10_10": {
+          "approximate_match_rate_10pct": 0.156,
+          "approximate_matches_10pct": 78,
+          "case_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+          "definition": {
+            "name": "qa_nonmember_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "nonmember",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.124,
+          "exact_matches": 62,
+          "mean_matching_prefix_tokens": 3.334,
+          "mean_normalized_edit_similarity": 0.40379999999999977,
+          "mean_positional_token_accuracy": 0.36619999999999964,
+          "samples": 500
+        }
+      },
+      "run_id": "canonical_response_10x10_n500_20260820",
+      "schema_version": 1,
+      "seed": 42
+    },
+    "dp_eps8_n500": {
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820_eps8/hooks_dp/final_adapter",
+      "dataset": {
+        "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+        "num_samples": 8000,
+        "selection": "shuffled",
+        "selection_seed": 42,
+        "source_fingerprint": "62ed809b7b7c1a36",
+        "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+        "source_size": 33955
+      },
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1
+      },
+      "elapsed_seconds": 64.04679031670094,
+      "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "excluded_selected_positions": 64,
+      "experiment": "prefix_suffix_extraction",
+      "gpu_name": "NVIDIA RTX A6000",
+      "model_id": "google/vaultgemma-1b",
+      "model_label": "dp_eps8_n500",
+      "profiles": {
+        "qa_member_10_10": {
+          "approximate_match_rate_10pct": 0.146,
+          "approximate_matches_10pct": 73,
+          "case_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+          "definition": {
+            "name": "qa_member_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "member",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.112,
+          "exact_matches": 56,
+          "mean_matching_prefix_tokens": 3.136,
+          "mean_normalized_edit_similarity": 0.3961999999999996,
+          "mean_positional_token_accuracy": 0.3533999999999996,
+          "samples": 500
+        },
+        "qa_nonmember_10_10": {
+          "approximate_match_rate_10pct": 0.164,
+          "approximate_matches_10pct": 82,
+          "case_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+          "definition": {
+            "name": "qa_nonmember_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "nonmember",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.128,
+          "exact_matches": 64,
+          "mean_matching_prefix_tokens": 3.372,
+          "mean_normalized_edit_similarity": 0.4129999999999996,
+          "mean_positional_token_accuracy": 0.3717999999999995,
+          "samples": 500
+        }
+      },
+      "run_id": "canonical_response_10x10_n500_20260820",
+      "schema_version": 1,
+      "seed": 42
+    },
+    "non_dp_n500": {
+      "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/privacy_eval/runs/canary_training/full_20260820/non_dp/final_adapter",
+      "dataset": {
+        "dataset_name": "medalpaca/medical_meadow_medical_flashcards",
+        "num_samples": 8000,
+        "selection": "shuffled",
+        "selection_seed": 42,
+        "source_fingerprint": "62ed809b7b7c1a36",
+        "source_indices_sha256": "04b7b730e393f89dc3dfaf084015c32ab297f5896a89af327e6995c264b78d54",
+        "source_size": 33955
+      },
+      "decoding": {
+        "do_sample": false,
+        "num_beams": 1
+      },
+      "elapsed_seconds": 64.16281809005886,
+      "excluded_canary_manifest_sha256": "3fdd6ff7e92a151b604b77b410cee75a3b6c6d2f6284fd36efe0bcf261f69f19",
+      "excluded_selected_positions": 64,
+      "experiment": "prefix_suffix_extraction",
+      "gpu_name": "NVIDIA RTX A6000",
+      "model_id": "google/vaultgemma-1b",
+      "model_label": "non_dp_n500",
+      "profiles": {
+        "qa_member_10_10": {
+          "approximate_match_rate_10pct": 0.2,
+          "approximate_matches_10pct": 100,
+          "case_source_indices_sha256": "06a203bbff6ecb6e08e2d5073a26da9039307fef0363ac8f11445046d9c4ec4c",
+          "definition": {
+            "name": "qa_member_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "member",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.158,
+          "exact_matches": 79,
+          "mean_matching_prefix_tokens": 3.89,
+          "mean_normalized_edit_similarity": 0.4645999999999998,
+          "mean_positional_token_accuracy": 0.42759999999999965,
+          "samples": 500
+        },
+        "qa_nonmember_10_10": {
+          "approximate_match_rate_10pct": 0.206,
+          "approximate_matches_10pct": 103,
+          "case_source_indices_sha256": "be59ba734c177c85821a32929707640debd105e75e500f53a3b1f2fea60324ab",
+          "definition": {
+            "name": "qa_nonmember_10_10",
+            "prefix_tokens": 10,
+            "sample_count": 500,
+            "split": "nonmember",
+            "suffix_tokens": 10
+          },
+          "exact_match_rate": 0.158,
+          "exact_matches": 79,
+          "mean_matching_prefix_tokens": 3.82,
+          "mean_normalized_edit_similarity": 0.46839999999999987,
+          "mean_positional_token_accuracy": 0.42319999999999985,
+          "samples": 500
+        }
+      },
+      "run_id": "canonical_response_10x10_n500_20260820",
+      "schema_version": 1,
+      "seed": 42
+    }
+  }
+}

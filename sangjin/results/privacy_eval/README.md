@@ -19,6 +19,8 @@ Synthetic Canary는 모두 무작위 합성 환자 ID와 네 자리 연구 코�
 - `2026-08-20-empirical-privacy.json`: 모델별 raw summary 통합본
 - `2026-08-20-prefix-method-comparison.md`: Naive/Hooks/vmap/EW/Ghost/FastDP 비교표
 - `2026-08-20-prefix-method-comparison.json`: 방법별 raw summary·통계 통합본
+- `2026-08-20-prefix-10x10-n500.md`: Canonical Member/Control 각 500개 결과
+- `2026-08-20-prefix-10x10-n500.json`: 10→10 raw summary·통계 통합본
 
 Adapter, per-example details, launcher log와 GPU 원시 출력은 `runs/` 아래에 보존하며 Git에는 포함하지 않는다.
 
