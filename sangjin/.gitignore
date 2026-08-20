@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+code/experiments/
+results/runs/
+results/launcher_logs/
+
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.pid
+.DS_Store
