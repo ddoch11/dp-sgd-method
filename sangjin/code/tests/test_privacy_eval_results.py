@@ -159,3 +159,15 @@ def test_dp_methods_have_equivalent_extraction_counts() -> None:
         (6, 6)
     }
     assert all(row["long_exact"] == row["long_approximate"] == 0 for row in bf16_dp)
+
+
+def test_prefix_design_and_results_are_separate_artifacts() -> None:
+    design = RESULTS_ROOT / "2026-08-20-prefix-suffix-experiment-design.md"
+    result_md = RESULTS_ROOT / "2026-08-20-prefix-method-comparison.md"
+    result_json = RESULTS_ROOT / "2026-08-20-prefix-method-comparison.json"
+    assert design.is_file()
+    assert result_md.is_file()
+    assert result_json.is_file()
+    design_text = design.read_text(encoding="utf-8")
+    assert "## 지표 정의" in design_text
+    assert "## 산출물 분리" in design_text

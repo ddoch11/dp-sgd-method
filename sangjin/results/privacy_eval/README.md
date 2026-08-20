@@ -12,6 +12,7 @@ Synthetic Canary는 모두 무작위 합성 환자 ID와 네 자리 연구 코�
 
 ## 파일
 
+- `2026-08-20-prefix-suffix-experiment-design.md`: Member/Control·공격·지표·checkpoint 설계
 - `synthetic_canary_manifest.json`: 고정 Canary, 교체 위치, dataset fingerprint와 hash
 - `synthetic_canary_stress_manifest.json`: 동일 위치·코드의 record 내부 반복 stress
 - `2026-08-20-empirical-privacy.md`: 최종 표와 정성 출력 예시
