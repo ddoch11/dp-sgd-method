@@ -1,0 +1,55 @@
+paths:
+  output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/mixed_private_medalpaca/experiments
+  hf_home: /home/sangjin/.cache/huggingface
+  hf_hub_cache: /home/sangjin/.cache/huggingface/hub
+
+runtime:
+  seed: 42
+
+dataset:
+  name: medalpaca/medical_meadow_medical_flashcards
+  split: train
+  num_samples: 8000
+  train_fraction: 0.9
+  max_length: 256
+  synthetic_manifest: /home/sangjin/workspace/dp-sgd-method/sangjin/results/level1_patient_code/level1_patient_codes_manifest.json
+  synthetic_member_count: 500
+  mixture_mode: append_private_members
+
+model:
+  id: google/vaultgemma-1b
+  load_in_4bit: false
+  use_gradient_checkpointing: false
+  attn_implementation: eager
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.0
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  logical_batch_size: 128
+  physical_batch_size: 16
+  eval_batch_size: 8
+  epochs: 30
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  target_delta: 0.00001
+  max_grad_norm: 1.0
+  accountant: prv
+  logging_steps: 50
+
+evaluation:
+  generation_batch_size: 32
+  score_batch_size: 8
+  max_new_tokens: 8

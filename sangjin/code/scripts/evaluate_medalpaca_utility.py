@@ -32,31 +32,25 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def execute(args: argparse.Namespace) -> dict[str, Any]:
-    level1_cfg = load_yaml(args.level1_config)
-    benchmark_cfg = load_yaml(args.benchmark_config)
-    seed = int(deep_get(level1_cfg, "runtime.seed", 42))
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=Path, required=True)
+    parser.add_argument("--adapter", type=Path)
+    parser.add_argument("--label", required=True)
+    parser.add_argument("--gpu", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+
+    cfg = load_yaml(args.config)
+    seed = int(deep_get(cfg, "runtime.seed", 42))
     set_reproducibility(seed)
     device = require_cuda_visible_device(args.gpu)
-    adapter_path = args.adapter_path.resolve() if args.adapter_path else None
-    model, tokenizer = load_eval_model(level1_cfg, adapter_path, device)
+    adapter_path = args.adapter.resolve() if args.adapter else None
+    model, tokenizer = load_eval_model(cfg, adapter_path, device)
     tokenizer.padding_side = "right"
 
-    def log(message: Any) -> None:
-        print(message, flush=True)
-
-    train_dataset, eval_dataset, dropped = build_dataset(
-        benchmark_cfg, tokenizer, log
-    )
-    canonical_eval_samples = len(eval_dataset)
-    if args.max_eval_samples > 0:
-        eval_dataset = eval_dataset.select(
-            range(min(args.max_eval_samples, len(eval_dataset)))
-        )
-    eval_batch_size = int(
-        deep_get(benchmark_cfg, "training.eval_batch_size", 8)
-    )
-
+    train_dataset, eval_dataset, dropped = build_dataset(cfg, tokenizer, print)
+    eval_batch_size = int(deep_get(cfg, "training.eval_batch_size", 8))
     torch.cuda.empty_cache()
     torch.cuda.reset_peak_memory_stats()
     torch.cuda.synchronize()
@@ -68,32 +62,28 @@ def execute(args: argparse.Namespace) -> dict[str, Any]:
     adapter_file = (
         adapter_path / "adapter_model.safetensors" if adapter_path else None
     )
-    result = {
+    result: dict[str, Any] = {
         "schema_version": 1,
-        "experiment": "level1_medalpaca_utility_evaluation",
+        "experiment": "medalpaca_utility_evaluation",
         "status": "completed",
-        "run_type": (
-            "full"
-            if len(eval_dataset) == canonical_eval_samples
-            else "smoke"
-        ),
         "label": args.label,
-        "model": str(deep_get(level1_cfg, "model.id")),
+        "model": str(deep_get(cfg, "model.id")),
         "adapter_path": str(adapter_path) if adapter_path else None,
         "adapter_sha256": (
             sha256_file(adapter_file)
             if adapter_file is not None and adapter_file.is_file()
             else None
         ),
-        "dataset": str(deep_get(benchmark_cfg, "dataset.name")),
-        "dataset_split": str(deep_get(benchmark_cfg, "dataset.split", "train")),
-        "selected_samples": int(deep_get(benchmark_cfg, "dataset.num_samples")),
-        "canonical_train_samples": len(train_dataset),
-        "canonical_eval_samples": canonical_eval_samples,
+        "dataset": str(deep_get(cfg, "dataset.name")),
+        "medalpaca_train_samples": 7200,
+        "synthetic_member_samples": int(
+            deep_get(cfg, "dataset.synthetic_member_count", 0)
+        ),
+        "mixed_train_samples": len(train_dataset),
+        "medalpaca_eval_samples": len(eval_dataset),
         "dropped_zero_response_examples": dropped,
-        "max_length": int(deep_get(benchmark_cfg, "dataset.max_length")),
+        "max_length": int(deep_get(cfg, "dataset.max_length")),
         "eval_batch_size": eval_batch_size,
-        "evaluated_samples": len(eval_dataset),
         "loss_definition": "response-only per-sequence response-token mean",
         "metrics": metrics,
         "elapsed_evaluation_sec": elapsed,
@@ -104,24 +94,6 @@ def execute(args: argparse.Namespace) -> dict[str, Any]:
     }
     write_json_exclusive(args.output, result)
     print(f"created {args.output}: {metrics}", flush=True)
-    return result
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--level1-config", type=Path, required=True)
-    parser.add_argument("--benchmark-config", type=Path, required=True)
-    parser.add_argument("--adapter-path", type=Path)
-    parser.add_argument("--label", required=True)
-    parser.add_argument("--gpu", required=True)
-    parser.add_argument("--max-eval-samples", type=int, default=0)
-    parser.add_argument("--output", type=Path, required=True)
-    return parser.parse_args()
-
-
-def main() -> int:
-    args = parse_args()
-    execute(args)
     return 0
 
 

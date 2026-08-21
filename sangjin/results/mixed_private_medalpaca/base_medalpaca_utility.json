@@ -1,0 +1,31 @@
+{
+  "adapter_path": null,
+  "adapter_sha256": null,
+  "dataset": "medalpaca/medical_meadow_medical_flashcards",
+  "dropped_zero_response_examples": 0,
+  "elapsed_evaluation_sec": 8.122392538003623,
+  "eval_batch_size": 8,
+  "experiment": "medalpaca_utility_evaluation",
+  "gpu_name": "NVIDIA RTX A6000",
+  "gpu_visible": "0",
+  "label": "base",
+  "loss_definition": "response-only per-sequence response-token mean",
+  "max_length": 256,
+  "medalpaca_eval_samples": 800,
+  "medalpaca_train_samples": 7200,
+  "metrics": {
+    "example_mean_loss": 1.6369140625,
+    "example_mean_ppl": 5.139285502454033,
+    "response_tokens": 20030,
+    "samples": 800,
+    "token_mean_loss": 1.6122316525212181,
+    "token_mean_ppl": 5.013988231078386
+  },
+  "mixed_train_samples": 7700,
+  "model": "google/vaultgemma-1b",
+  "peak_vram_gb": 4.865731716156006,
+  "schema_version": 1,
+  "seed": 42,
+  "status": "completed",
+  "synthetic_member_samples": 500
+}

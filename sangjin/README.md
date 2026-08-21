@@ -31,9 +31,7 @@ VaultGemma-1B에 LoRA를 적용하고, 동일한 DP-SGD 조건에서 per-example
 - `configs/`: BF16, 4-bit, smoke test 설정
 - `results/`: BF16·4-bit 비교와 실증적 privacy 평가 요약
 
-Level 1 합성 환자 코드 실험은 `results/level1_patient_code/`에 분리돼 있다.
-
-Level 1에서는 합성 Member/Control을 500개씩 사용하고, non-DP가 Member mapping을 충분히 암기하는 40 epoch 조건에서 epsilon=2의 Naive, Hooks, Direct vmap, ExpandedWeights, Ghost Clipping, FastDP Book-Keeping을 비교한다.
+실제 fine-tuning privacy 정본은 `results/mixed_private_medalpaca/`에 분리돼 있다. MedAlpaca train 7,200개와 synthetic private Member 500개를 함께 학습하고, MedAlpaca eval 800개와 synthetic Control 500개로 utility와 노출을 측정한다.
 
 ## 실증적 Privacy 평가
 

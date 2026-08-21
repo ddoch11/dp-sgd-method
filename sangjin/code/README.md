@@ -55,20 +55,21 @@ git submodule update --init --recursive
 | `scripts/run_post_training_privacy_evals.sh` | 학습 종료 후 Canary와 Prefix-Suffix 평가를 순차 실행 |
 | `src/privacy_eval_common.py` | 데이터 selection, response loss, model loading 공통 코드 |
 
-### Level 1 합성 환자 코드
+### Synthetic private record helper
 
 | 파일 | 역할 |
 |---|---|
 | `scripts/create_level1_patient_codes.py` | Member/Control 500개씩 고유 alias-code manifest 생성 |
-| `scripts/train_level1_patient_codes.py` | BF16 non-DP 또는 Opacus Hooks DP-SGD 학습 |
-| `scripts/evaluate_level1_patient_codes.py` | code exact extraction과 target-score AUC 평가 |
-| `scripts/compile_level1_patient_code.py` | pilot·DP sweep·정성 예시 결과 통합 |
-| `scripts/train_level1_patient_code_methods.py` | Level 1 task의 Naive/Hooks/vmap/EW/Ghost/FastDP epsilon=2 공통 학습 |
-| `scripts/compile_level1_patient_code_methods.py` | Level 1 DP backend 비교 결과 통합 |
-| `scripts/evaluate_level1_medalpaca_utility.py` | Level 1 checkpoint의 고정 MedAlpaca eval 800개 response-only loss/PPL 평가 |
+| `scripts/evaluate_level1_patient_codes.py` | mixed checkpoint의 Member/Control code exact extraction과 target-score AUC 평가 |
+| `scripts/evaluate_medalpaca_utility.py` | Base 또는 mixed adapter의 MedAlpaca held-out response-only loss/PPL 평가 |
+| `scripts/compile_mixed_private_medalpaca.py` | 혼합 학습·utility·extraction 결과 통합 |
 | `src/level1_patient_code_common.py` | prompt, tokenizer, model, evaluation 공통 코드 |
 
 실험 설정은 `../configs/privacy_evaluation.yaml`에 있다. 대용량 adapter와 raw run은 `../results/privacy_eval/runs/`에 저장되며 Git에서 제외된다. Canary manifest와 최종 요약만 저장소에서 관리한다.
+
+### Mixed private MedAlpaca 정본
+
+`../configs/mixed_private_medalpaca_bf16_e30.yaml`은 MedAlpaca train 7,200개에 합성 private Member 500개를 append해 총 7,700개로 학습한다. MedAlpaca eval 800개와 synthetic Control 500개는 학습에 넣지 않는다. 이 혼합 실험을 실제 fine-tuning privacy 평가의 정본으로 사용한다.
 
 ```bash
 python scripts/create_synthetic_canary_manifest.py \

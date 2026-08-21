@@ -19,7 +19,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 import yaml
-from datasets import Dataset, load_dataset
+from datasets import Dataset, concatenate_datasets, load_dataset
 from opacus import GradSampleModule
 from opacus.grad_sample import (
     GradSampleModuleExpandedWeights,
@@ -30,6 +30,8 @@ from opacus.accountants.utils import get_noise_multiplier
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from torch.func import functional_call, grad_and_value, vmap
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
+from level1_patient_code_common import build_tokenized_dataset, load_manifest
 
 
 METHODS = ("non_dp", "naive_dp", "hooks_dp", "vmap_dp", "expanded_weights_dp", "ghost_dp")
@@ -244,8 +246,43 @@ def build_dataset(cfg: dict[str, Any], tokenizer: Any, log: Any) -> tuple[Datase
     train_size = int(len(tokenized) * train_fraction)
     train_dataset = tokenized.select(range(train_size))
     eval_dataset = tokenized.select(range(train_size, len(tokenized)))
+    synthetic_manifest_path = deep_get(cfg, "dataset.synthetic_manifest")
+    synthetic_member_count = 0
+    if synthetic_manifest_path:
+        manifest = load_manifest(Path(str(synthetic_manifest_path)))
+        member_records = [
+            dict(row)
+            for row in manifest["records"]
+            if row["membership"] == "member"
+        ]
+        synthetic_dataset = build_tokenized_dataset(
+            member_records, tokenizer, max_length
+        )
+        extra_columns = [
+            column
+            for column in ("patient_id", "private_code", "membership")
+            if column in synthetic_dataset.column_names
+        ]
+        if extra_columns:
+            synthetic_dataset = synthetic_dataset.remove_columns(extra_columns)
+        synthetic_dataset.set_format(
+            type="torch", columns=["input_ids", "attention_mask", "labels"]
+        )
+        synthetic_member_count = len(synthetic_dataset)
+        expected_count = int(
+            deep_get(cfg, "dataset.synthetic_member_count", synthetic_member_count)
+        )
+        if synthetic_member_count != expected_count:
+            raise ValueError(
+                f"Expected {expected_count} synthetic members, got {synthetic_member_count}"
+            )
+        train_dataset = concatenate_datasets([train_dataset, synthetic_dataset])
+        train_dataset.set_format(
+            type="torch", columns=["input_ids", "attention_mask", "labels"]
+        )
     log(
         f"dataset={dataset_name} selected={before_filter} dropped_zero_response={dropped} "
+        f"medalpaca_train={train_size} synthetic_member={synthetic_member_count} "
         f"train={len(train_dataset)} eval={len(eval_dataset)} max_length={max_length}"
     )
     return train_dataset, eval_dataset, dropped
@@ -634,6 +671,10 @@ def execute(args: argparse.Namespace, cfg: dict[str, Any], run_dir: Path, log: A
         "load_in_4bit": as_bool(deep_get(cfg, "model.load_in_4bit", False)),
         "attn_implementation": str(deep_get(cfg, "model.attn_implementation", "eager")),
         "dataset": str(deep_get(cfg, "dataset.name")),
+        "synthetic_manifest": deep_get(cfg, "dataset.synthetic_manifest"),
+        "synthetic_member_samples": int(
+            deep_get(cfg, "dataset.synthetic_member_count", 0)
+        ),
         "train_samples": len(train_dataset),
         "eval_samples": len(eval_dataset),
         "dropped_zero_response_examples": dropped_examples,

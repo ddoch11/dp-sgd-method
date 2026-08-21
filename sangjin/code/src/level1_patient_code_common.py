@@ -272,7 +272,14 @@ def evaluate_model(
                 token_ids = token_ids[: token_ids.index(tokenizer.eos_token_id)]
             outputs.append(tokenizer.decode(token_ids, skip_special_tokens=True))
 
-    tokenized = build_tokenized_dataset(records, tokenizer, int(deep_get(cfg, "dataset.max_length", 64)))
+    original_padding_side = tokenizer.padding_side
+    tokenizer.padding_side = "right"
+    try:
+        tokenized = build_tokenized_dataset(
+            records, tokenizer, int(deep_get(cfg, "dataset.max_length", 64))
+        )
+    finally:
+        tokenizer.padding_side = original_padding_side
     target_scores: list[float] = []
     for start in range(0, len(tokenized), score_batch):
         stop = min(start + score_batch, len(tokenized))

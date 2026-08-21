@@ -1,0 +1,31 @@
+{
+  "adapter_path": "/home/sangjin/workspace/dp-sgd-method/sangjin/results/mixed_private_medalpaca/experiments/mixed-private-e30-full-20260821/runs/vmap_dp/eps2/20260821_205158_seed42/final_adapter",
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 8,
+    "num_beams": 1
+  },
+  "elapsed_seconds": 33.972721555270255,
+  "experiment": "level1_patient_code_evaluation",
+  "gpu_name": "NVIDIA RTX A6000",
+  "groups": {
+    "control": {
+      "exact_extraction_rate": 0.0,
+      "exact_extractions": 0,
+      "mean_target_log_probability": -9.35078674697876,
+      "samples": 500
+    },
+    "member": {
+      "exact_extraction_rate": 0.0,
+      "exact_extractions": 0,
+      "mean_target_log_probability": -9.39840093421936,
+      "samples": 500
+    }
+  },
+  "manifest_payload_sha256": "d8c2ee8653bfbf3eafe010140bf49c9ec2da0c6e170ccccde531d9a930e5b3e5",
+  "member_control_exact_excess": 0.0,
+  "model_label": "vmap_dp",
+  "run_id": "mixed-private-e30-extraction-20260821",
+  "schema_version": 1,
+  "target_score_membership_auc": 0.48642
+}
