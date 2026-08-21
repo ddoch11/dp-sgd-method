@@ -55,6 +55,16 @@ git submodule update --init --recursive
 | `scripts/run_post_training_privacy_evals.sh` | 학습 종료 후 Canary와 Prefix-Suffix 평가를 순차 실행 |
 | `src/privacy_eval_common.py` | 데이터 selection, response loss, model loading 공통 코드 |
 
+### Level 1 합성 환자 코드
+
+| 파일 | 역할 |
+|---|---|
+| `scripts/create_level1_patient_codes.py` | Member/Control 500개씩 고유 alias-code manifest 생성 |
+| `scripts/train_level1_patient_codes.py` | BF16 non-DP 또는 Opacus Hooks DP-SGD 학습 |
+| `scripts/evaluate_level1_patient_codes.py` | code exact extraction과 target-score AUC 평가 |
+| `scripts/compile_level1_patient_code.py` | pilot·DP sweep·정성 예시 결과 통합 |
+| `src/level1_patient_code_common.py` | prompt, tokenizer, model, evaluation 공통 코드 |
+
 실험 설정은 `../configs/privacy_evaluation.yaml`에 있다. 대용량 adapter와 raw run은 `../results/privacy_eval/runs/`에 저장되며 Git에서 제외된다. Canary manifest와 최종 요약만 저장소에서 관리한다.
 
 ```bash

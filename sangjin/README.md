@@ -31,6 +31,8 @@ VaultGemma-1B에 LoRA를 적용하고, 동일한 DP-SGD 조건에서 per-example
 - `configs/`: BF16, 4-bit, smoke test 설정
 - `results/`: BF16·4-bit 비교와 실증적 privacy 평가 요약
 
+Level 1 합성 환자 코드 실험은 `results/level1_patient_code/`에 분리돼 있다.
+
 ## 실증적 Privacy 평가
 
 기존 체크포인트를 대상으로 실제 학습 문장의 Prefix-Suffix 추출을 수행하고, 합성 식별자만 사용하는 Synthetic Canary를 삽입해 non-DP와 DP epsilon=2를 다시 학습한다. 실제 개인정보는 사용하지 않는다.

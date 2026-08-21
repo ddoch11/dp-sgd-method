@@ -1,0 +1,58 @@
+paths:
+  output_root: /home/sangjin/workspace/dp-sgd-method/sangjin/results/level1_patient_code/runs
+  hf_home: /home/sangjin/.cache/huggingface
+  hf_hub_cache: /home/sangjin/.cache/huggingface/hub
+
+runtime:
+  seed: 42
+  manifest_seed: 20260821
+
+dataset:
+  member_count: 500
+  control_count: 500
+  max_length: 64
+
+model:
+  id: google/vaultgemma-1b
+  dtype: bfloat16
+  attn_implementation: eager
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.0
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  logical_batch_size: 32
+  physical_batch_size: 16
+  epochs: 20
+  checkpoint_epochs:
+    - 1
+    - 5
+    - 10
+    - 20
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  scheduler: constant
+  target_delta: 0.00001
+  max_grad_norm: 1.0
+  accountant: prv
+  logging_steps: 20
+
+evaluation:
+  generation_batch_size: 32
+  score_batch_size: 64
+  max_new_tokens: 8
+  positive_control_member_exact_rate: 0.20
+  positive_control_max_control_exact_rate: 0.01
+  positive_control_score_auc: 0.80
