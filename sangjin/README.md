@@ -33,6 +33,8 @@ VaultGemma-1B에 LoRA를 적용하고, 동일한 DP-SGD 조건에서 per-example
 
 Level 1 합성 환자 코드 실험은 `results/level1_patient_code/`에 분리돼 있다.
 
+Level 1에서는 합성 Member/Control을 500개씩 사용하고, non-DP가 Member mapping을 충분히 암기하는 40 epoch 조건에서 epsilon=2의 Naive, Hooks, Direct vmap, ExpandedWeights, Ghost Clipping, FastDP Book-Keeping을 비교한다.
+
 ## 실증적 Privacy 평가
 
 기존 체크포인트를 대상으로 실제 학습 문장의 Prefix-Suffix 추출을 수행하고, 합성 식별자만 사용하는 Synthetic Canary를 삽입해 non-DP와 DP epsilon=2를 다시 학습한다. 실제 개인정보는 사용하지 않는다.

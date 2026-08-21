@@ -46,11 +46,27 @@ Response:
 
 초기 20-epoch non-DP는 Member exact가 10/500에 그쳐 positive control이 약했다. 40 epoch 재실험에서는 non-DP가 488/500을 정확히 생성한 반면, 같은 조건의 DP는 epsilon=0.5/2/8에서 각각 0/0/1건만 복원했다. 이는 이 단일 seed 공격 조건에서 DP memorization 신호가 크게 억제된 결과이며, 모든 개인정보 공격의 부재를 뜻하지 않는다.
 
+## epsilon=2 backend 비교
+
+동일한 Bernoulli Poisson sampling `q=32/500=0.064`, `sigma=3.37890625`, 640 step을 사용해 여섯 방법을 원본 VaultGemma에서 각각 새로 학습했다.
+
+| 방법 | Actual epsilon | Final train loss | Member exact | Control exact | Score AUC |
+|---|---:|---:|---:|---:|---:|
+| Naive Python loop | 1.9986 | 1.8581 | 0/500 | 0/500 | 0.4884 |
+| Opacus Hooks | 1.9986 | 1.8646 | 0/500 | 0/500 | 0.4873 |
+| Direct vmap | 1.9986 | 1.8609 | 0/500 | 0/500 | 0.4880 |
+| ExpandedWeights | 1.9986 | 1.8590 | 0/500 | 0/500 | 0.4932 |
+| Ghost Clipping | 1.9986 | 1.8615 | 0/500 | 0/500 | 0.4910 |
+| FastDP Book-Keeping | 1.9986 | 1.8594 | 0/500 | 0/500 | 0.4791 |
+
+여섯 backend의 loss와 empirical memorization 결론은 같았다. 기존 Opacus PrivacyEngine ε=2 run의 Actual epsilon 1.9468은 DataLoader에서 사용한 유효 `q=1/16=0.0625`로 accounting했기 때문이며, 이번 공통 backend 표와 구분한다. 시간·처리량은 병렬 실행 참고값이므로 최종 효율 순위에는 단독 재실행이 필요하다.
+
 ## 파일
 
 - `level1_patient_codes_manifest.json`: 합성 Member/Control mapping과 hash
 - `2026-08-21-level1-patient-code.md/json`: 초기 20-epoch 보고서
 - `2026-08-21-level1-patient-code-tuned.md/json`: 40-epoch 정정 재실험 보고서
+- `2026-08-21-level1-patient-code-methods-eps2.md/json`: 여섯 DP backend 공통 epsilon=2 비교
 - `runs/`: adapter, checkpoint, per-example details, logs. Git 제외
 
 ## 제한
