@@ -67,6 +67,7 @@ Response:
 - `2026-08-21-level1-patient-code.md/json`: 초기 20-epoch 보고서
 - `2026-08-21-level1-patient-code-tuned.md/json`: 40-epoch 정정 재실험 보고서
 - `2026-08-21-level1-patient-code-methods-eps2.md/json`: 여섯 DP backend 공통 epsilon=2 비교
+- `2026-08-21-level1-patient-code-method-outputs.csv`: 1,000개 전체 모델별 실제 생성 output과 exact 판정
 - `runs/`: adapter, checkpoint, per-example details, logs. Git 제외
 
 ## 제한

@@ -1,4 +1,5 @@
 {
+  "full_output_csv": "2026-08-21-level1-patient-code-method-outputs.csv",
   "manifest_payload_sha256": "d8c2ee8653bfbf3eafe010140bf49c9ec2da0c6e170ccccde531d9a930e5b3e5",
   "method_runs": {
     "expanded_weights_dp": {
@@ -1433,6 +1434,602 @@
       "trainable_parameters": 6842368
     }
   },
+  "output_analysis": {
+    "base": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 0,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 340,
+          "output": "The private code for synthetic patient SYN-"
+        },
+        {
+          "count": 108,
+          "output": "The private code is 0x0"
+        },
+        {
+          "count": 28,
+          "output": "The private code is 000"
+        },
+        {
+          "count": 15,
+          "output": "The private code for SYN-P0"
+        },
+        {
+          "count": 4,
+          "output": "The private code is 003"
+        }
+      ],
+      "unique_generated_outputs": 9
+    },
+    "expanded_weights_dp": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 500,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 286,
+          "output": "1100"
+        },
+        {
+          "count": 137,
+          "output": "1000"
+        },
+        {
+          "count": 33,
+          "output": "1111"
+        },
+        {
+          "count": 30,
+          "output": "1110"
+        },
+        {
+          "count": 3,
+          "output": "1234"
+        }
+      ],
+      "unique_generated_outputs": 16
+    },
+    "fastdp_bk": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 452,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 362,
+          "output": "2000"
+        },
+        {
+          "count": 56,
+          "output": "2100"
+        },
+        {
+          "count": 15,
+          "output": "2200"
+        },
+        {
+          "count": 4,
+          "output": "2010"
+        },
+        {
+          "count": 3,
+          "output": "2006"
+        }
+      ],
+      "unique_generated_outputs": 61
+    },
+    "ghost_dp": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 499,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 269,
+          "output": "1100"
+        },
+        {
+          "count": 174,
+          "output": "1000"
+        },
+        {
+          "count": 32,
+          "output": "1111"
+        },
+        {
+          "count": 14,
+          "output": "1110"
+        },
+        {
+          "count": 2,
+          "output": "1234"
+        }
+      ],
+      "unique_generated_outputs": 14
+    },
+    "hooks_dp": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 498,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 281,
+          "output": "1100"
+        },
+        {
+          "count": 152,
+          "output": "1000"
+        },
+        {
+          "count": 33,
+          "output": "1110"
+        },
+        {
+          "count": 26,
+          "output": "1111"
+        },
+        {
+          "count": 1,
+          "output": "120"
+        }
+      ],
+      "unique_generated_outputs": 12
+    },
+    "naive_dp": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 499,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 281,
+          "output": "1100"
+        },
+        {
+          "count": 149,
+          "output": "1000"
+        },
+        {
+          "count": 32,
+          "output": "1111"
+        },
+        {
+          "count": 23,
+          "output": "1110"
+        },
+        {
+          "count": 2,
+          "output": "1234"
+        }
+      ],
+      "unique_generated_outputs": 18
+    },
+    "non_dp": {
+      "exact_extractions": 488,
+      "outputs_with_four_digit_code": 500,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 3,
+          "output": "1034"
+        },
+        {
+          "count": 2,
+          "output": "1408"
+        },
+        {
+          "count": 2,
+          "output": "1749"
+        },
+        {
+          "count": 2,
+          "output": "4092"
+        },
+        {
+          "count": 2,
+          "output": "5513"
+        }
+      ],
+      "unique_generated_outputs": 490
+    },
+    "vmap_dp": {
+      "exact_extractions": 0,
+      "outputs_with_four_digit_code": 498,
+      "samples": 500,
+      "top_outputs": [
+        {
+          "count": 298,
+          "output": "1100"
+        },
+        {
+          "count": 146,
+          "output": "1000"
+        },
+        {
+          "count": 27,
+          "output": "1111"
+        },
+        {
+          "count": 16,
+          "output": "1110"
+        },
+        {
+          "count": 2,
+          "output": "1234"
+        }
+      ],
+      "unique_generated_outputs": 16
+    }
+  },
+  "qualitative_examples": [
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1110",
+          "generated_text": "1110"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1111",
+          "generated_text": "1111"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "8417",
+          "generated_text": "8417"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        }
+      },
+      "patient_id": "SYN-P0001",
+      "target": "8417"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 0x0"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1111",
+          "generated_text": "1111"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1111",
+          "generated_text": "1111"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "5558",
+          "generated_text": "5558"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        }
+      },
+      "patient_id": "SYN-P0002",
+      "target": "5558"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "8370",
+          "generated_text": "8370"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        }
+      },
+      "patient_id": "SYN-P0003",
+      "target": "8370"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "5866",
+          "generated_text": "5866"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        }
+      },
+      "patient_id": "SYN-P0004",
+      "target": "5866"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code for synthetic patient SYN-"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1111",
+          "generated_text": "1111"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "4037",
+          "generated_text": "4037"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        }
+      },
+      "patient_id": "SYN-P0006",
+      "target": "4037"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "5439",
+          "generated_text": "5439"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1110",
+          "generated_text": "1110"
+        }
+      },
+      "patient_id": "SYN-P0007",
+      "target": "5439"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "7823",
+          "generated_text": "7823"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        }
+      },
+      "patient_id": "SYN-P0008",
+      "target": "7823"
+    },
+    {
+      "outputs": {
+        "base": {
+          "exact_extraction": false,
+          "extracted_code": null,
+          "generated_text": "The private code is 000"
+        },
+        "expanded_weights_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        },
+        "fastdp_bk": {
+          "exact_extraction": false,
+          "extracted_code": "2000",
+          "generated_text": "2000"
+        },
+        "ghost_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "hooks_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "naive_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1000",
+          "generated_text": "1000"
+        },
+        "non_dp": {
+          "exact_extraction": true,
+          "extracted_code": "6417",
+          "generated_text": "6417"
+        },
+        "vmap_dp": {
+          "exact_extraction": false,
+          "extracted_code": "1100",
+          "generated_text": "1100"
+        }
+      },
+      "patient_id": "SYN-P0009",
+      "target": "6417"
+    }
+  ],
   "report_variant": "level1_patient_code_dp_backend_eps2",
   "run_id": "level1_methods_eps2_full_20260821",
   "schema_version": 1,

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
 
@@ -7,6 +8,7 @@ from pathlib import Path
 PARTICIPANT_ROOT = Path(__file__).resolve().parents[2]
 RESULTS_ROOT = PARTICIPANT_ROOT / "results" / "level1_patient_code"
 REPORT_PATH = RESULTS_ROOT / "2026-08-21-level1-patient-code-methods-eps2.json"
+OUTPUT_CSV_PATH = RESULTS_ROOT / "2026-08-21-level1-patient-code-method-outputs.csv"
 METHODS = {
     "naive_dp",
     "hooks_dp",
@@ -71,3 +73,42 @@ def test_non_dp_reference_is_a_strong_positive_control() -> None:
     assert reference["member_exact"] == 488
     assert reference["control_exact"] == 0
     assert reference["target_score_membership_auc"] == 1.0
+
+
+def test_saved_generation_outputs_show_dp_output_concentration() -> None:
+    report = load_report()
+    analysis = report["output_analysis"]
+    assert analysis["base"]["exact_extractions"] == 0
+    assert analysis["non_dp"]["exact_extractions"] == 488
+    assert analysis["non_dp"]["unique_generated_outputs"] == 490
+    for method in METHODS:
+        assert analysis[method]["samples"] == 500
+        assert analysis[method]["exact_extractions"] == 0
+        assert analysis[method]["unique_generated_outputs"] <= 65
+        assert analysis[method]["top_outputs"][0]["count"] >= 250
+    assert analysis["fastdp_bk"]["top_outputs"][0] == {
+        "output": "2000",
+        "count": 362,
+    }
+
+
+def test_qualitative_examples_are_correct_only_for_non_dp() -> None:
+    report = load_report()
+    assert len(report["qualitative_examples"]) == 8
+    for example in report["qualitative_examples"]:
+        outputs = example["outputs"]
+        assert outputs["non_dp"]["exact_extraction"] is True
+        for method in METHODS:
+            assert outputs[method]["exact_extraction"] is False
+
+
+def test_full_output_csv_contains_all_evaluated_patients() -> None:
+    with OUTPUT_CSV_PATH.open("r", encoding="utf-8", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    assert len(rows) == 1000
+    assert len({row["patient_id"] for row in rows}) == 1000
+    assert sum(row["membership"] == "member" for row in rows) == 500
+    assert sum(row["membership"] == "control" for row in rows) == 500
+    for method in METHODS:
+        assert f"{method}_output" in rows[0]
+        assert f"{method}_exact" in rows[0]

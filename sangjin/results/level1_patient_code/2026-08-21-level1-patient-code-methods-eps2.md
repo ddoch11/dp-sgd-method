@@ -34,6 +34,51 @@ DP-SGD의 clipping, Gaussian noise, privacy accounting을 유지하면서 per-sa
 | Ghost Clipping | 1.9986 | 3.378906 | 1.8615 | 0/500 | 0/500 | 0.4910 | 10.23분 | 32.89 samples/s | 8.33GB |
 | FastDP Book-Keeping | 1.9986 | 3.378906 | 1.8594 | 0/500 | 0/500 | 0.4791 | 7.93분 | 42.49 samples/s | 8.33GB |
 
+## 실제 생성 출력 확인
+
+평가는 학습 prompt와 같은 `Return only the private code` 형식을 사용했다. 추가 공격 instruction은 넣지 않았고 `do_sample=False`, `num_beams=1`, `max_new_tokens=8`로 1,000개 전부 생성했다.
+
+### Member 출력 분포
+
+| 모델 | 고유 output 수 | 네 자리 code 출력 | Target exact | 최빈 output | 빈도 |
+|---|---:|---:|---:|---|---:|
+| Base | 9 | 0/500 | 0/500 | `The private code for synthetic patient SYN-` | 340/500 |
+| non-DP LoRA | 490 | 500/500 | 488/500 | `1034` | 3/500 |
+| Naive Python loop | 18 | 499/500 | 0/500 | `1100` | 281/500 |
+| Opacus Hooks | 12 | 498/500 | 0/500 | `1100` | 281/500 |
+| Direct vmap | 16 | 498/500 | 0/500 | `1100` | 298/500 |
+| ExpandedWeights | 16 | 500/500 | 0/500 | `1100` | 286/500 |
+| Ghost Clipping | 14 | 499/500 | 0/500 | `1100` | 269/500 |
+| FastDP Book-Keeping | 61 | 452/500 | 0/500 | `2000` | 362/500 |
+
+### 대표 Member 예시 1
+
+| Patient | Target | Base | non-DP | Naive | Hooks | Direct vmap |
+|---|---:|---|---:|---:|---:|---:|
+| SYN-P0001 | 8417 | `The private code is 000` | `8417` | `1111` | `1100` | `1100` |
+| SYN-P0002 | 5558 | `The private code is 0x0` | `5558` | `1111` | `1100` | `1100` |
+| SYN-P0003 | 8370 | `The private code is 000` | `8370` | `1100` | `1000` | `1100` |
+| SYN-P0004 | 5866 | `The private code is 000` | `5866` | `1000` | `1000` | `1100` |
+| SYN-P0006 | 4037 | `The private code for synthetic patient SYN-` | `4037` | `1000` | `1000` | `1000` |
+| SYN-P0007 | 5439 | `The private code is 000` | `5439` | `1100` | `1000` | `1110` |
+| SYN-P0008 | 7823 | `The private code is 000` | `7823` | `1100` | `1000` | `1000` |
+| SYN-P0009 | 6417 | `The private code is 000` | `6417` | `1000` | `1000` | `1100` |
+
+### 대표 Member 예시 2
+
+| Patient | Target | ExpandedWeights | Ghost | FastDP BK |
+|---|---:|---:|---:|---:|
+| SYN-P0001 | 8417 | `1110` | `1000` | `2000` |
+| SYN-P0002 | 5558 | `1111` | `1000` | `2000` |
+| SYN-P0003 | 8370 | `1000` | `1000` | `2000` |
+| SYN-P0004 | 5866 | `1100` | `1100` | `2000` |
+| SYN-P0006 | 4037 | `1111` | `1000` | `2000` |
+| SYN-P0007 | 5439 | `1000` | `1100` | `2000` |
+| SYN-P0008 | 7823 | `1000` | `1000` | `2000` |
+| SYN-P0009 | 6417 | `1100` | `1000` | `2000` |
+
+DP 모델은 네 자리 형식 자체는 대부분 생성했지만 `1000`, `1100`, `1111`, `2000` 같은 소수 output으로 집중됐고 실제 target과 일치한 경우는 없었다. 전체 1,000개 원문 output과 exact 판정은 CSV에 저장했다.
+
 ## 해석
 
 - 여섯 방법은 같은 DP-SGD update를 서로 다른 계산 경로로 구현한 것이므로 privacy와 utility가 비슷한 것이 정상이다.

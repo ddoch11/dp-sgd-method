@@ -2,11 +2,13 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from compile_level1_patient_code import extraction_statistics, load_json
+from compile_level1_patient_code import extraction_statistics, load_json, load_jsonl
 
 
 METHODS = (
@@ -31,24 +33,58 @@ def method_dir(method: str) -> str:
     return f"{method}_eps2"
 
 
+def index_details(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    indexed = {str(row["patient_id"]): row for row in rows}
+    if len(indexed) != len(rows):
+        raise ValueError("Duplicate patient_id in evaluation details")
+    return indexed
+
+
+def member_output_analysis(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    members = [row for row in rows if row["membership"] == "member"]
+    counts = Counter(str(row["generated_text"]) for row in members)
+    return {
+        "samples": len(members),
+        "unique_generated_outputs": len(counts),
+        "outputs_with_four_digit_code": sum(
+            row["extracted_code"] is not None for row in members
+        ),
+        "exact_extractions": sum(bool(row["exact_extraction"]) for row in members),
+        "top_outputs": [
+            {"output": output, "count": count}
+            for output, count in counts.most_common(5)
+        ],
+    }
+
+
+def md_code(value: str) -> str:
+    escaped = value.replace("|", "\\|").replace("`", "\\`")
+    escaped = escaped.replace("\r", " ").replace("\n", " ")
+    return f"`{escaped}`"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--results-root", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--output-json", type=Path, required=True)
     parser.add_argument("--output-md", type=Path, required=True)
+    parser.add_argument("--output-csv", type=Path, required=True)
     args = parser.parse_args()
 
     runs = args.results_root / "runs"
     method_root = runs / "method_comparison" / args.run_id
     method_runs: dict[str, dict[str, Any]] = {}
     statistics: dict[str, dict[str, Any]] = {}
+    method_details: dict[str, list[dict[str, Any]]] = {}
     for method in METHODS:
-        summary = load_json(method_root / method_dir(method) / "run_summary.json")
+        run_root = method_root / method_dir(method)
+        summary = load_json(run_root / "run_summary.json")
         if summary["run_type"] != "full":
             raise ValueError(f"Expected a full run for {method}")
         method_runs[method] = summary
         statistics[method] = extraction_statistics(summary["evaluation"])
+        method_details[method] = load_jsonl(run_root / "evaluation/details.jsonl")
 
     non_dp_root = (
         runs
@@ -60,7 +96,13 @@ def main() -> int:
     non_dp_evaluation = load_json(
         non_dp_root / "checkpoints/epoch_040/evaluation/summary.json"
     )
+    non_dp_details = load_jsonl(
+        non_dp_root / "checkpoints/epoch_040/evaluation/details.jsonl"
+    )
     non_dp_statistics = extraction_statistics(non_dp_evaluation)
+
+    base_root = runs / "evaluation/base_20260821/base"
+    base_details = load_jsonl(base_root / "details.jsonl")
 
     official_root = (
         runs
@@ -73,6 +115,54 @@ def main() -> int:
         official_root / "checkpoints/epoch_040/evaluation/summary.json"
     )
     official_statistics = extraction_statistics(official_evaluation)
+
+    all_details = {
+        "base": base_details,
+        "non_dp": non_dp_details,
+        **method_details,
+    }
+    detail_indexes = {
+        label: index_details(rows) for label, rows in all_details.items()
+    }
+    patient_ids = sorted(detail_indexes["base"])
+    if len(patient_ids) != 1000:
+        raise ValueError("Expected exactly 1,000 evaluated patients")
+    for patient_id in patient_ids:
+        reference = detail_indexes["base"][patient_id]
+        for label, indexed in detail_indexes.items():
+            row = indexed.get(patient_id)
+            if row is None:
+                raise ValueError(f"Missing {patient_id} in {label}")
+            if (
+                row["private_code"] != reference["private_code"]
+                or row["membership"] != reference["membership"]
+            ):
+                raise ValueError(f"Mismatched record for {patient_id} in {label}")
+
+    output_analysis = {
+        label: member_output_analysis(rows) for label, rows in all_details.items()
+    }
+    example_ids = [
+        patient_id
+        for patient_id in patient_ids
+        if detail_indexes["non_dp"][patient_id]["membership"] == "member"
+        and detail_indexes["non_dp"][patient_id]["exact_extraction"]
+    ][:8]
+    qualitative_examples = [
+        {
+            "patient_id": patient_id,
+            "target": detail_indexes["base"][patient_id]["private_code"],
+            "outputs": {
+                label: {
+                    "generated_text": indexed[patient_id]["generated_text"],
+                    "extracted_code": indexed[patient_id]["extracted_code"],
+                    "exact_extraction": indexed[patient_id]["exact_extraction"],
+                }
+                for label, indexed in detail_indexes.items()
+            },
+        }
+        for patient_id in example_ids
+    ]
 
     lines = [
         "# 2026-08-21 Level 1 합성 환자 코드 DP backend 비교",
@@ -121,6 +211,79 @@ def main() -> int:
     lines.extend(
         [
             "",
+            "## 실제 생성 출력 확인",
+            "",
+            "평가는 학습 prompt와 같은 `Return only the private code` 형식을 사용했다. 추가 공격 instruction은 넣지 않았고 `do_sample=False`, `num_beams=1`, `max_new_tokens=8`로 1,000개 전부 생성했다.",
+            "",
+            "### Member 출력 분포",
+            "",
+            "| 모델 | 고유 output 수 | 네 자리 code 출력 | Target exact | 최빈 output | 빈도 |",
+            "|---|---:|---:|---:|---|---:|",
+        ]
+    )
+    output_display = {
+        "base": "Base",
+        "non_dp": "non-DP LoRA",
+        **DISPLAY_NAMES,
+    }
+    for label in ("base", "non_dp", *METHODS):
+        analysis = output_analysis[label]
+        top = analysis["top_outputs"][0]
+        lines.append(
+            f"| {output_display[label]} | {analysis['unique_generated_outputs']} | "
+            f"{analysis['outputs_with_four_digit_code']}/500 | "
+            f"{analysis['exact_extractions']}/500 | {md_code(top['output'])} | "
+            f"{top['count']}/500 |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "### 대표 Member 예시 1",
+            "",
+            "| Patient | Target | Base | non-DP | Naive | Hooks | Direct vmap |",
+            "|---|---:|---|---:|---:|---:|---:|",
+        ]
+    )
+    for example in qualitative_examples:
+        outputs = example["outputs"]
+        lines.append(
+            f"| {example['patient_id']} | {example['target']} | "
+            f"{md_code(outputs['base']['generated_text'])} | "
+            f"{md_code(outputs['non_dp']['generated_text'])} | "
+            f"{md_code(outputs['naive_dp']['generated_text'])} | "
+            f"{md_code(outputs['hooks_dp']['generated_text'])} | "
+            f"{md_code(outputs['vmap_dp']['generated_text'])} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "### 대표 Member 예시 2",
+            "",
+            "| Patient | Target | ExpandedWeights | Ghost | FastDP BK |",
+            "|---|---:|---:|---:|---:|",
+        ]
+    )
+    for example in qualitative_examples:
+        outputs = example["outputs"]
+        lines.append(
+            f"| {example['patient_id']} | {example['target']} | "
+            f"{md_code(outputs['expanded_weights_dp']['generated_text'])} | "
+            f"{md_code(outputs['ghost_dp']['generated_text'])} | "
+            f"{md_code(outputs['fastdp_bk']['generated_text'])} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "DP 모델은 네 자리 형식 자체는 대부분 생성했지만 `1000`, `1100`, `1111`, `2000` 같은 소수 output으로 집중됐고 실제 target과 일치한 경우는 없었다. 전체 1,000개 원문 output과 exact 판정은 CSV에 저장했다.",
+        ]
+    )
+
+    lines.extend(
+        [
+            "",
             "## 해석",
             "",
             "- 여섯 방법은 같은 DP-SGD update를 서로 다른 계산 경로로 구현한 것이므로 privacy와 utility가 비슷한 것이 정상이다.",
@@ -154,6 +317,9 @@ def main() -> int:
         },
         "method_runs": method_runs,
         "statistics": statistics,
+        "output_analysis": output_analysis,
+        "qualitative_examples": qualitative_examples,
+        "full_output_csv": args.output_csv.name,
     }
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     with args.output_json.open("x", encoding="utf-8") as stream:
@@ -161,7 +327,31 @@ def main() -> int:
         stream.write("\n")
     with args.output_md.open("x", encoding="utf-8") as stream:
         stream.write("\n".join(lines))
-    print(f"created {args.output_json} and {args.output_md}")
+    csv_labels = ("base", "non_dp", *METHODS)
+    csv_fieldnames = ["patient_id", "membership", "target"]
+    for label in csv_labels:
+        csv_fieldnames.extend(
+            [f"{label}_output", f"{label}_extracted_code", f"{label}_exact"]
+        )
+    with args.output_csv.open("x", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(
+            stream, fieldnames=csv_fieldnames, lineterminator="\n"
+        )
+        writer.writeheader()
+        for patient_id in patient_ids:
+            reference = detail_indexes["base"][patient_id]
+            row: dict[str, Any] = {
+                "patient_id": patient_id,
+                "membership": reference["membership"],
+                "target": reference["private_code"],
+            }
+            for label in csv_labels:
+                detail = detail_indexes[label][patient_id]
+                row[f"{label}_output"] = detail["generated_text"]
+                row[f"{label}_extracted_code"] = detail["extracted_code"]
+                row[f"{label}_exact"] = detail["exact_extraction"]
+            writer.writerow(row)
+    print(f"created {args.output_json}, {args.output_md}, and {args.output_csv}")
     return 0
 
 
