@@ -34,6 +34,27 @@ DP-SGD의 clipping, Gaussian noise, privacy accounting을 유지하면서 per-sa
 | Ghost Clipping | 1.9986 | 3.378906 | 1.8615 | 0/500 | 0/500 | 0.4910 | 10.23분 | 32.89 samples/s | 8.33GB |
 | FastDP Book-Keeping | 1.9986 | 3.378906 | 1.8594 | 0/500 | 0/500 | 0.4791 | 7.93분 | 42.49 samples/s | 8.33GB |
 
+## MedAlpaca utility와 forgetting
+
+Level 1 모델은 MedAlpaca로 학습한 모델이 아니다. 기존 BF16 비교와 같은 `medalpaca/medical_meadow_medical_flashcards` 앞 8,000개 중 고정 eval 800개를 사용해, 합성 code fine-tuning 후 기존 의료 QA response loss가 얼마나 변했는지 측정했다.
+
+| 모델 | Eval loss | Eval PPL | Base 대비 delta loss |
+|---|---:|---:|---:|
+| Base | 1.6369 | 5.1393 | +0.0000 |
+| non-DP LoRA | 5.0798 | 160.7489 | +3.4429 |
+| Naive Python loop | 1.7923 | 6.0030 | +0.1554 |
+| Opacus Hooks | 1.7925 | 6.0047 | +0.1556 |
+| Direct vmap | 1.7926 | 6.0051 | +0.1557 |
+| ExpandedWeights | 1.7900 | 5.9895 | +0.1531 |
+| Ghost Clipping | 1.7922 | 6.0028 | +0.1553 |
+| FastDP Book-Keeping | 1.8218 | 6.1830 | +0.1849 |
+
+- Base는 별도 fine-tuning이 없는 기준이다.
+- non-DP는 synthetic Member mapping을 강하게 암기했지만 MedAlpaca Eval loss가 크게 증가해 catastrophic forgetting 신호를 보였다.
+- epsilon=2 DP backend들은 synthetic mapping을 복원하지 못한 대신 MedAlpaca loss 증가는 상대적으로 작았다.
+- 이 평가는 teacher-forcing response-only loss/PPL이며 정답 accuracy가 아니다.
+- 과거 MedAlpaca train 7,200개로 직접 fine-tuning한 Eval loss 약 1.21과는 학습 task가 다르므로 직접 성능 순위를 비교하지 않는다.
+
 ## 실제 생성 출력 확인
 
 평가는 학습 prompt와 같은 `Return only the private code` 형식을 사용했다. 추가 공격 instruction은 넣지 않았고 `do_sample=False`, `num_beams=1`, `max_new_tokens=8`로 1,000개 전부 생성했다.

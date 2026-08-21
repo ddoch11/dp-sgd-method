@@ -112,3 +112,30 @@ def test_full_output_csv_contains_all_evaluated_patients() -> None:
     for method in METHODS:
         assert f"{method}_output" in rows[0]
         assert f"{method}_exact" in rows[0]
+
+
+def test_medalpaca_utility_uses_the_canonical_held_out_split() -> None:
+    utility = load_report()["medalpaca_utility"]
+    assert set(utility) == {"base", "non_dp", *METHODS}
+    for label, evaluation in utility.items():
+        assert evaluation["label"] == label
+        assert evaluation["run_type"] == "full"
+        assert evaluation["dataset"] == "medalpaca/medical_meadow_medical_flashcards"
+        assert evaluation["canonical_train_samples"] == 7200
+        assert evaluation["canonical_eval_samples"] == 800
+        assert evaluation["evaluated_samples"] == 800
+        assert evaluation["max_length"] == 256
+        assert evaluation["eval_batch_size"] == 8
+        assert evaluation["metrics"]["samples"] == 800
+
+
+def test_non_dp_memorization_causes_more_forgetting_than_dp() -> None:
+    utility = load_report()["medalpaca_utility"]
+    base_loss = utility["base"]["metrics"]["example_mean_loss"]
+    non_dp_loss = utility["non_dp"]["metrics"]["example_mean_loss"]
+    assert 1.63 < base_loss < 1.65
+    assert non_dp_loss > 5.0
+    for method in METHODS:
+        dp_loss = utility[method]["metrics"]["example_mean_loss"]
+        assert 1.78 < dp_loss < 1.83
+        assert dp_loss - base_loss < non_dp_loss - base_loss

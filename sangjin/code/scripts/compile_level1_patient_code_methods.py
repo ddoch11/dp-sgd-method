@@ -27,6 +27,7 @@ DISPLAY_NAMES = {
     "ghost_dp": "Ghost Clipping",
     "fastdp_bk": "FastDP Book-Keeping",
 }
+UTILITY_RUN_ID = "medalpaca_full_20260821"
 
 
 def method_dir(method: str) -> str:
@@ -115,6 +116,18 @@ def main() -> int:
         official_root / "checkpoints/epoch_040/evaluation/summary.json"
     )
     official_statistics = extraction_statistics(official_evaluation)
+
+    utility_root = runs / "utility" / UTILITY_RUN_ID
+    utility_evaluations = {
+        label: load_json(utility_root / f"{label}.json")
+        for label in ("base", "non_dp", *METHODS)
+    }
+    for label, utility in utility_evaluations.items():
+        if utility["run_type"] != "full" or utility["evaluated_samples"] != 800:
+            raise ValueError(f"Incomplete MedAlpaca utility evaluation for {label}")
+    base_utility_loss = utility_evaluations["base"]["metrics"][
+        "example_mean_loss"
+    ]
 
     all_details = {
         "base": base_details,
@@ -207,6 +220,36 @@ def main() -> int:
             f"{run['throughput_samples_per_sec']:.2f} samples/s | "
             f"{run['peak_vram_gb']:.2f}GB |"
         )
+
+    lines.extend(
+        [
+            "",
+            "## MedAlpaca utility와 forgetting",
+            "",
+            "Level 1 모델은 MedAlpaca로 학습한 모델이 아니다. 기존 BF16 비교와 같은 `medalpaca/medical_meadow_medical_flashcards` 앞 8,000개 중 고정 eval 800개를 사용해, 합성 code fine-tuning 후 기존 의료 QA response loss가 얼마나 변했는지 측정했다.",
+            "",
+            "| 모델 | Eval loss | Eval PPL | Base 대비 delta loss |",
+            "|---|---:|---:|---:|",
+        ]
+    )
+    utility_display = {"base": "Base", "non_dp": "non-DP LoRA", **DISPLAY_NAMES}
+    for label in ("base", "non_dp", *METHODS):
+        metrics = utility_evaluations[label]["metrics"]
+        delta_loss = metrics["example_mean_loss"] - base_utility_loss
+        lines.append(
+            f"| {utility_display[label]} | {metrics['example_mean_loss']:.4f} | "
+            f"{metrics['example_mean_ppl']:.4f} | {delta_loss:+.4f} |"
+        )
+    lines.extend(
+        [
+            "",
+            "- Base는 별도 fine-tuning이 없는 기준이다.",
+            "- non-DP는 synthetic Member mapping을 강하게 암기했지만 MedAlpaca Eval loss가 크게 증가해 catastrophic forgetting 신호를 보였다.",
+            "- epsilon=2 DP backend들은 synthetic mapping을 복원하지 못한 대신 MedAlpaca loss 증가는 상대적으로 작았다.",
+            "- 이 평가는 teacher-forcing response-only loss/PPL이며 정답 accuracy가 아니다.",
+            "- 과거 MedAlpaca train 7,200개로 직접 fine-tuning한 Eval loss 약 1.21과는 학습 task가 다르므로 직접 성능 순위를 비교하지 않는다.",
+        ]
+    )
 
     lines.extend(
         [
@@ -317,6 +360,7 @@ def main() -> int:
         },
         "method_runs": method_runs,
         "statistics": statistics,
+        "medalpaca_utility": utility_evaluations,
         "output_analysis": output_analysis,
         "qualitative_examples": qualitative_examples,
         "full_output_csv": args.output_csv.name,

@@ -61,6 +61,23 @@ Response:
 
 여섯 backend의 loss와 empirical memorization 결론은 같았다. 기존 Opacus PrivacyEngine ε=2 run의 Actual epsilon 1.9468은 DataLoader에서 사용한 유효 `q=1/16=0.0625`로 accounting했기 때문이며, 이번 공통 backend 표와 구분한다. 시간·처리량은 병렬 실행 참고값이므로 최종 효율 순위에는 단독 재실행이 필요하다.
 
+## MedAlpaca utility 확인
+
+합성 code fine-tuning 후 기존 의료 QA 능력의 보존 정도를 보기 위해, 이전 BF16 실험과 같은 MedAlpaca 고정 eval 800개의 response-only loss를 측정했다.
+
+| 모델 | Eval loss | Eval PPL |
+|---|---:|---:|
+| Base | 1.6369 | 5.1393 |
+| non-DP | 5.0798 | 160.7489 |
+| Naive DP | 1.7923 | 6.0030 |
+| Hooks DP | 1.7925 | 6.0047 |
+| Direct vmap | 1.7926 | 6.0051 |
+| ExpandedWeights | 1.7900 | 5.9895 |
+| Ghost | 1.7922 | 6.0028 |
+| FastDP BK | 1.8218 | 6.1830 |
+
+Level 1 모델은 MedAlpaca train split으로 학습하지 않았다. 따라서 이 표는 benchmark fine-tuning 성능이 아니라 synthetic task fine-tuning 뒤의 forgetting/utility 보존 평가다. non-DP는 synthetic mapping을 강하게 암기하면서 MedAlpaca loss가 크게 악화됐고, DP 모델들은 mapping을 복원하지 못한 대신 base utility 저하가 상대적으로 작았다.
+
 ## 파일
 
 - `level1_patient_codes_manifest.json`: 합성 Member/Control mapping과 hash
