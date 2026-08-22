@@ -134,6 +134,22 @@ def execute(args: argparse.Namespace, cfg: dict[str, Any], run_dir: Path, log: A
             del batch, outputs, per_example_loss
 
         optimizer.step()
+        if step_index == 0:
+            expected_parameter_ids = {id(parameter) for parameter in trainable_parameters}
+            supported_parameter_ids = {
+                id(parameter) for _, parameter in privacy_engine.named_params
+            }
+            if supported_parameter_ids != expected_parameter_ids:
+                missing = len(expected_parameter_ids - supported_parameter_ids)
+                extra = len(supported_parameter_ids - expected_parameter_ids)
+                raise RuntimeError(
+                    "FastDP did not cover every trainable parameter: "
+                    f"missing={missing}, extra={extra}"
+                )
+            log(
+                f"fastdp_trainable_parameter_coverage={len(supported_parameter_ids)}/"
+                f"{len(expected_parameter_ids)}"
+            )
         optimizer.zero_grad(set_to_none=True)
         prv_accountant.step(noise_multiplier=sigma, sample_rate=sample_rate)
         torch.cuda.synchronize()
@@ -188,10 +204,14 @@ def execute(args: argparse.Namespace, cfg: dict[str, Any], run_dir: Path, log: A
         "logical_batch_size": logical_batch,
         "physical_batch_size": physical_batch,
         "sample_rate": sample_rate,
+        "expected_sample_passes": steps_to_run * sample_rate,
+        "sampling_seed": seed + 20_000,
+        "noise_seed": seed + 10_000,
         "planned_steps": planned_steps,
         "completed_steps": steps_to_run,
         "epochs": epochs,
         "learning_rate": learning_rate,
+        "weight_decay": weight_decay,
         "target_epsilon": args.target_epsilon,
         "target_delta": target_delta,
         "accountant": "PRV external; FastDP RDP recorded separately",
@@ -202,6 +222,7 @@ def execute(args: argparse.Namespace, cfg: dict[str, Any], run_dir: Path, log: A
         "loss_first": losses[0],
         "loss_last": losses[-1],
         "loss_mean": sum(losses) / len(losses),
+        "loss_trace": losses,
         "lot_size_mean": sum(lot_sizes) / len(lot_sizes),
         "total_examples_processed": total_examples,
         "elapsed_training_sec": elapsed_training,

@@ -1,0 +1,136 @@
+{
+  "actual_model_validation": {
+    "module_validator_errors": [],
+    "total_parameters": 1045583488,
+    "trainable_parameter_tensors": 364,
+    "trainable_parameters": 6842368,
+    "unsupported_fastdp": [],
+    "unsupported_ghost": [],
+    "unsupported_hooks": []
+  },
+  "experiment": "dp_backend_numerical_equivalence",
+  "full_mixed_run": {
+    "expanded_weights_dp": {
+      "adapter_cosine_vs_naive": 0.9999997087365734,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": {
+        "max_abs": 0.004632618801652777,
+        "mean_abs": 0.0010494146567712108
+      },
+      "max_adapter_abs_difference": 0.0008077379316091537,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0007526239772051339,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    },
+    "fastdp_bk": {
+      "adapter_cosine_vs_naive": 0.9999997125023427,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": null,
+      "max_adapter_abs_difference": 0.0008068280294537544,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0007476304705592202,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    },
+    "ghost_dp": {
+      "adapter_cosine_vs_naive": 0.9999997137983467,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": {
+        "max_abs": 0.005121186023621993,
+        "mean_abs": 0.001069713771092492
+      },
+      "max_adapter_abs_difference": 0.0008092476055026054,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0007507343482917516,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    },
+    "hooks_dp": {
+      "adapter_cosine_vs_naive": 0.9999997131137117,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": {
+        "max_abs": 0.004942255434782661,
+        "mean_abs": 0.001040098380001387
+      },
+      "max_adapter_abs_difference": 0.0008076513186097145,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0007504562440313826,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    },
+    "naive_dp": {
+      "adapter_cosine_vs_naive": 1.0,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      },
+      "max_adapter_abs_difference": 0.0,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    },
+    "vmap_dp": {
+      "adapter_cosine_vs_naive": 0.9999997122577813,
+      "completed_steps": 1830,
+      "final_epsilon": 1.9948198276998617,
+      "loss_trace_difference_vs_naive": {
+        "max_abs": 0.004286024305555358,
+        "mean_abs": 0.0010489527946716687
+      },
+      "max_adapter_abs_difference": 0.0008064741268754005,
+      "noise_multiplier": 1.62109375,
+      "relative_adapter_l2_vs_naive": 0.0007526353931750482,
+      "sample_rate": 0.016623376623376623,
+      "total_examples_processed": 234159
+    }
+  },
+  "passed": true,
+  "privacy_accounting": {
+    "expected_sample_passes": 30.42077922077922,
+    "max_reported_epsilon_error": 0.0,
+    "mechanism": "prv",
+    "noise_multiplier": 1.62109375,
+    "nominal_epochs": 30,
+    "recomputed_epsilon": 1.9948198276998617,
+    "sample_rate": 0.016623376623376623,
+    "steps": 1830,
+    "target_delta": 1e-05
+  },
+  "schema_version": 1,
+  "torch_version": "2.10.0+cu128",
+  "toy_model": {
+    "batch_size": 4,
+    "comparisons_vs_naive": {
+      "expanded_weights_dp": {
+        "max_abs": 1.862645149230957e-09,
+        "relative_l2": 1.6153212210792443e-09
+      },
+      "fastdp_bk": {
+        "max_abs": 1.1629890650510788e-07,
+        "relative_l2": 1.347752925160209e-06
+      },
+      "ghost_dp": {
+        "max_abs": 4.172325134277344e-07,
+        "relative_l2": 1.1392456155513723e-06
+      },
+      "hooks_dp": {
+        "max_abs": 1.862645149230957e-09,
+        "relative_l2": 1.6153212210792443e-09
+      },
+      "vmap_dp": {
+        "max_abs": 1.862645149230957e-09,
+        "relative_l2": 1.6153212210792443e-09
+      }
+    },
+    "max_grad_norm": 0.35,
+    "noise_multiplier": 0.0
+  }
+}

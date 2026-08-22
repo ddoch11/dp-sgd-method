@@ -63,6 +63,8 @@ non-DP는 mixed private Member의 59%를 실제 출력했고 Control은 0건이�
 - `2026-08-21-mixed-private-medalpaca-e30.md/json`: 통합 결과
 - `2026-08-21-mixed-private-medalpaca-e30-outputs.csv`: synthetic 1,000개 전체 실제 output
 - `base_medalpaca_utility.json`: Base held-out utility 기준
+- `2026-08-22-dp-backend-validation.md`: 방법별 수치·accounting·module coverage 검증
+- `dp_backend_equivalence.json`: machine-readable 수치 동등성 결과
 - `experiments/`: raw adapter, logs, extraction details. Git 제외
 
 ## 구분
