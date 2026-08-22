@@ -11,7 +11,15 @@ REPORT_PATH = RESULTS_ROOT / "2026-08-21-mixed-private-medalpaca-e30.json"
 OUTPUT_CSV_PATH = (
     RESULTS_ROOT / "2026-08-21-mixed-private-medalpaca-e30-outputs.csv"
 )
-METHODS = {"non_dp", "hooks_dp", "expanded_weights_dp", "vmap_dp"}
+METHODS = {
+    "non_dp",
+    "naive_dp",
+    "hooks_dp",
+    "vmap_dp",
+    "expanded_weights_dp",
+    "ghost_dp",
+    "fastdp_bk",
+}
 DP_METHODS = METHODS - {"non_dp"}
 
 
@@ -37,7 +45,8 @@ def test_training_uses_medalpaca_plus_private_members() -> None:
         assert run["epochs"] == 30
         assert run["completed_steps"] == run["planned_steps"] == 1830
         assert run["logical_batch_size"] == 128
-        assert run["physical_batch_size"] == 16
+        expected_physical_batch = 1 if method == "naive_dp" else 16
+        assert run["physical_batch_size"] == expected_physical_batch
         assert abs(run["sample_rate"] - 128 / 7700) < 1e-12
     assert report["training"]["non_dp"]["target_epsilon"] is None
 
@@ -89,3 +98,16 @@ def test_full_output_csv_contains_all_synthetic_records() -> None:
     assert sum(row["non_dp_exact"] == "True" for row in rows) == 295
     for method in DP_METHODS:
         assert sum(row[f"{method}_exact"] == "True" for row in rows) == 0
+
+
+def test_vectorized_and_gradient_free_backends_are_faster_than_naive() -> None:
+    training = load_report()["training"]
+    naive = training["naive_dp"]
+    assert naive["elapsed_training_sec"] / 60 > 500
+    assert naive["peak_vram_gb"] < 4
+    for method in DP_METHODS - {"naive_dp"}:
+        run = training[method]
+        assert run["elapsed_training_sec"] < naive["elapsed_training_sec"]
+        assert run["throughput_samples_per_sec"] > naive[
+            "throughput_samples_per_sec"
+        ]

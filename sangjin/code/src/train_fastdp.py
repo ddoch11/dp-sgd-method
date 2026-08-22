@@ -175,6 +175,10 @@ def execute(args: argparse.Namespace, cfg: dict[str, Any], run_dir: Path, log: A
         "load_in_4bit": bool(deep_get(cfg, "model.load_in_4bit", False)),
         "attn_implementation": str(deep_get(cfg, "model.attn_implementation", "eager")),
         "dataset": str(deep_get(cfg, "dataset.name")),
+        "synthetic_manifest": deep_get(cfg, "dataset.synthetic_manifest"),
+        "synthetic_member_samples": int(
+            deep_get(cfg, "dataset.synthetic_member_count", 0)
+        ),
         "train_samples": len(train_dataset),
         "eval_samples": len(eval_dataset),
         "dropped_zero_response_examples": dropped_examples,

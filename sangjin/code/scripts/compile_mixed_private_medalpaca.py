@@ -14,6 +14,7 @@ from scipy.stats import fisher_exact
 DISPLAY_NAMES = {
     "base": "Base",
     "non_dp": "non-DP LoRA",
+    "naive_dp": "Naive DP-SGD",
     "hooks_dp": "Opacus Hooks",
     "vmap_dp": "Direct vmap",
     "expanded_weights_dp": "ExpandedWeights",
@@ -196,6 +197,7 @@ def main() -> int:
     representative_dp = next(
         run for method, run in training.items() if method != "non_dp"
     )
+    vectorized_run = training.get("hooks_dp", representative_dp)
     lines = [
         "# 2026-08-21 Mixed Private MedAlpaca, 30 epoch",
         "",
@@ -211,7 +213,7 @@ def main() -> int:
         "| Synthetic Control | 500 | 미포함 |",
         "",
         f"- 총 train 7,700개, 30 epoch, {representative_dp['planned_steps']} optimizer steps",
-        f"- Logical/physical batch {representative_dp['logical_batch_size']}/{representative_dp['physical_batch_size']}",
+        f"- Logical batch {representative_dp['logical_batch_size']}, physical batch {vectorized_run['physical_batch_size']} (Naive만 1)",
         f"- Poisson q={representative_dp['sample_rate']:.8f}",
         f"- epsilon=2, delta=1e-5, C=1, sigma={representative_dp['noise_multiplier']}",
         "- VaultGemma-1B BF16 + LoRA r8/alpha16/dropout0",
@@ -246,17 +248,26 @@ def main() -> int:
             "",
             "## 계산 결과",
             "",
-            "| 방법 | Final train loss | 시간 | 처리량 | Peak VRAM |",
-            "|---|---:|---:|---:|---:|",
+            "| 방법 | Final train loss | 시간 | 처리량 | Peak VRAM | Naive 대비 속도 |",
+            "|---|---:|---:|---:|---:|---:|",
         ]
+    )
+    naive_time = (
+        training["naive_dp"]["elapsed_training_sec"]
+        if "naive_dp" in training
+        else None
     )
     for method in args.methods:
         run = training[method]
+        if naive_time is None or method == "non_dp":
+            speedup_text = "-"
+        else:
+            speedup_text = f"{naive_time / run['elapsed_training_sec']:.2f}x"
         lines.append(
             f"| {DISPLAY_NAMES[method]} | {run['loss_last']:.4f} | "
             f"{run['elapsed_training_sec'] / 60:.2f}분 | "
             f"{run['throughput_samples_per_sec']:.2f}/s | "
-            f"{run['peak_vram_gb']:.2f}GB |"
+            f"{run['peak_vram_gb']:.2f}GB | {speedup_text} |"
         )
 
     lines.extend(
@@ -303,6 +314,7 @@ def main() -> int:
             "- 이 결과는 MedAlpaca와 private synthetic record를 실제로 함께 fine-tuning한 조건이다.",
             "- Member/Control extraction과 MedAlpaca held-out utility를 함께 보고한다.",
             "- epsilon은 관측된 유출 확률이 아니라 sample-level DP privacy loss 상한이다.",
+            "- 시간·처리량은 각 방법이 전용 GPU에서 실행된 측정값이지만 일부 run은 서버 내 병렬 실행이므로 최종 순위에는 이 조건을 함께 표기한다.",
             "- 단일 seed와 실험용 비보안 RNG 결과이며 최종 통계 주장 전 seed 반복이 필요하다.",
             "- Synthetic-only standalone Level 1 결과는 최종 과제 결과에서 제외한다.",
             "",
